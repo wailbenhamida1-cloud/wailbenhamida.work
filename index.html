@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="canonical" href="https://wailbenhamida.work/">
+<meta property="og:title" content="STAY → STORY — Wail Ben Hamida">
+<meta property="og:description" content="I find the hidden story of independent hotels and restaurants and turn it into copy guests remember and AI can recommend.">
+<meta property="og:image" content="https://wailbenhamida.work/images/noor.jpg">
+<meta property="og:url" content="https://wailbenhamida.work/">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>→</text></svg>">
+<title>STAY → STORY</title>
+<meta name="description" content="STAY → STORY finds the hidden story of independent hotels and restaurants and turns it into copy guests remember and AI can recommend.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: dusk-lit single column. A lantern-glow hero, then a ledger of offers, then a gallery of places, each card reading like a hotel's guest book entry. */
+:root{
+  --bg:#f6f4f1; --surface:#ffffff; --ink:#1b1d2a; --muted:#5d6070; --line:#dcd8d2;
+  --glow:#c9781e; --glow-soft:#f3e3cc; --night:#1b1d2a; --on-night:#f2eee8;
+  --display:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12131c; --surface:#1b1d2a; --ink:#efebe4; --muted:#a3a3b2; --line:#2e3040;
+  --glow:#e8a24a; --glow-soft:#3a2a17; --night:#0b0c12; --on-night:#f2eee8; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12131c; --surface:#1b1d2a; --ink:#efebe4; --muted:#a3a3b2; --line:#2e3040;
+  --glow:#e8a24a; --glow-soft:#3a2a17; --night:#0b0c12; --on-night:#f2eee8; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--glow)}
+p{margin:0}
+
+/* hero */
+.hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:auto -10% -60% auto;width:70vmax;height:70vmax;border-radius:50%;
+  background:radial-gradient(circle, rgba(232,162,74,.32), rgba(232,162,74,0) 60%);pointer-events:none}
+.hero .wrap{padding-block:28px 72px;position:relative;z-index:1}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:64px}
+.brand{font-family:var(--display);font-size:26px;letter-spacing:.02em}
+.brand span{color:#e8a24a}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap;font-size:15px}
+.nav-links a{text-decoration:none;opacity:.8}
+.nav-links a:hover{opacity:1}
+.hero h1{font-size:clamp(44px,7.5vw,92px);max-width:13ch}
+.hero h1 em{color:#e8a24a}
+.hero .lede{font-size:clamp(18px,2vw,21px);max-width:58ch;margin-top:24px;opacity:.88}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+.btn{display:inline-block;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px}
+.btn-glow{background:#e8a24a;color:#14110c}
+.btn-ghost{border:1px solid rgba(242,238,232,.35);color:var(--on-night)}
+.hero-quote{margin-top:56px;border-left:2px solid #e8a24a;padding-left:18px;max-width:60ch;font-family:var(--display);font-style:italic;font-size:22px;opacity:.9}
+.hero-quote small{display:block;font-family:var(--mono);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-top:8px}
+
+section{padding-block:80px}
+.section-head{display:grid;gap:12px;max-width:62ch;margin-bottom:40px}
+.section-head h2{font-size:clamp(34px,4.5vw,52px)}
+.section-head p{color:var(--muted)}
+
+/* two layers */
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.layer{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:10px}
+.layer h3{font-size:30px}
+.layer p{color:var(--muted)}
+
+/* method */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;counter-reset:s}
+.step{display:grid;gap:8px;align-content:start}
+.step b{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--glow)}
+.step h3{font-size:26px}
+.step p{color:var(--muted);font-size:16px}
+
+/* offers ledger */
+.offers{display:grid;gap:0;border-top:1px solid var(--line)}
+.offer{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) auto;gap:24px;padding-block:26px;border-bottom:1px solid var(--line);align-items:baseline}
+.offer h3{font-size:28px}
+.offer .what{color:var(--muted)}
+.offer .price{font-family:var(--mono);font-size:20px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.offer .price small{display:block;font-size:12px;color:var(--muted)}
+.offer.free{background:var(--glow-soft);margin-inline:-16px;padding-inline:16px;border-radius:6px}
+@media (max-width:720px){.offer{grid-template-columns:1fr;gap:8px}}
+
+/* gallery */
+.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
+.filters button{font:inherit;font-size:14px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
+.case img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;max-width:100%}
+.case-body{padding:20px;display:grid;gap:12px;flex:1;align-content:start}
+.case-meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em}
+.case h3{font-size:28px}
+.case .before{font-size:14px;color:var(--muted)}
+.case .before s{text-decoration-color:var(--glow)}
+.case .story{font-family:var(--display);font-style:italic;font-size:20px;line-height:1.35}
+.case .faq{font-size:14px;border-top:1px dashed var(--line);padding-top:10px;color:var(--muted)}
+.case .faq b{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.1em;color:var(--glow);display:block}
+.note{font-size:14px;color:var(--muted);margin-top:24px}
+
+/* snapshot */
+.snap{background:var(--night);color:var(--on-night)}
+.snap .section-head p{color:rgba(242,238,232,.75)}
+.qs{display:grid;gap:14px;max-width:70ch;padding:0;margin:0;list-style:none;counter-reset:q}
+.qs li{counter-increment:q;display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;font-size:18px;padding-block:12px;border-bottom:1px solid rgba(242,238,232,.15)}
+.qs li::before{content:counter(q,decimal-leading-zero);font-family:var(--mono);color:#e8a24a;font-size:14px;padding-top:4px}
+.qs li.heart{color:#e8a24a}
+.where{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
+.where a{border:1px solid rgba(242,238,232,.3);border-radius:999px;padding:10px 18px;text-decoration:none;font-size:15px}
+.where a:hover{border-color:#e8a24a}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:40px;align-items:start}
+.about img{width:100%;max-width:220px;aspect-ratio:1;object-fit:cover;border-radius:50%}
+.about-text{display:grid;gap:16px;max-width:62ch}
+.about-text h2{font-size:clamp(32px,4vw,46px)}
+.about-text p{color:var(--muted)}
+.films{display:flex;gap:12px;flex-wrap:wrap}
+.films a{font-family:var(--mono);font-size:13px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;text-decoration:none}
+.films a:hover{border-color:var(--glow)}
+@media (max-width:640px){.about{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line)}
+footer .wrap{padding-block:32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
+@media (prefers-reduced-motion:no-preference){.case{transition:transform .25s ease}.case:hover{transform:translateY(-3px)}}
+</style>
+
+<header class="hero">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <div class="brand">STAY <span>→</span> STORY</div>
+      <div class="nav-links">
+        <a href="#offers">Offers</a>
+        <a href="#work">Work</a>
+        <a href="#snapshot">Free Snapshot</a>
+        <a href="#about">About</a>
+      </div>
+    </nav>
+    <p class="label">Story &amp; AI visibility for independent hotels and restaurants</p>
+    <h1 style="margin-top:18px">We find the story <em>no one sees.</em></h1>
+    <p class="lede">Most independent hotels and restaurants are better than they look online. Their best story hides in a review nobody quotes, a detail only regulars notice. I find it, write it, and make it clear enough that guests remember it and ChatGPT, Perplexity and Google AI can recommend it.</p>
+    <div class="cta-row">
+      <a class="btn btn-glow" href="#snapshot">Get your free AI Story Snapshot</a>
+      <a class="btn btn-ghost" href="#work">See the work</a>
+    </div>
+    <p class="hero-quote">“Every evening at sunset, Noor lights the courtyard lanterns one by one. By the time you return, the house is glowing, and it is glowing for you.”<small>Casa Noor · concept case study</small></p>
+  </div>
+</header>
+
+<main>
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Two layers, one job</p>
+        <h2>A story people remember. Facts AI can repeat.</h2>
+        <p>Creative studios sell the story. SEO agencies sell visibility. Travelers now ask AI where to stay and eat, so a place needs both at once.</p>
+      </div>
+      <div class="layers">
+        <div class="layer"><h3>Story</h3><p>Identity, positioning and the hidden story of your place, written in three lengths: website, booking listings, and a short bio.</p></div>
+        <div class="layer"><h3>Discovery</h3><p>Clear, consistent facts and answer-ready FAQs, so AI assistants understand what makes you different and can say it back to the next guest.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">The method</p>
+        <h2>How a place becomes a story</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><b>Step 1</b><h3>Listen</h3><p>Reviews, listings, competitors, and the answers AI gives today about places like yours.</p></div>
+        <div class="step"><b>Step 2</b><h3>Find</h3><p>The detail guests keep mentioning that nobody has written down. That is the story.</p></div>
+        <div class="step"><b>Step 3</b><h3>Write</h3><p>Place DNA, ideal guests, positioning, the story in three lengths, copy for every platform.</p></div>
+        <div class="step"><b>Step 4</b><h3>Make it findable</h3><p>Ten AI-ready FAQs, consistent facts everywhere, and a before/after check of what AI says.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="offers" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Offers</p>
+        <h2>Start free. Go as deep as your place needs.</h2>
+        <p>Delivered remotely, worldwide. Copy you can paste the same day.</p>
+      </div>
+      <div class="offers">
+        <div class="offer free"><h3>AI Story Snapshot</h3><p class="what">What AI says about you today, the hidden story I found, and three quick fixes. Two pages within 48 hours.</p><p class="price">Free</p></div>
+        <div class="offer"><h3>Story Kit</h3><p class="what">For hotels, guesthouses, rentals, restaurants and cafés. Place DNA, two guest profiles, positioning, your story in three lengths, ready-to-paste copy for your website, Booking, Airbnb, Google and menus, ten AI-ready FAQs and five next actions.</p><p class="price">$190<small>3 days</small></p></div>
+        <div class="offer"><h3>Signature Story &amp; Visibility</h3><p class="what">The Story Kit plus a full website copy rewrite, FAQ and structured data ready to install, and an AI visibility report after 60 days.</p><p class="price">$590<small>7 days</small></p></div>
+        <div class="offer"><h3>Visibility Care</h3><p class="what">Monthly: measure what AI says about you, refresh your copy, and add seasonal stories.</p><p class="price">$149<small>per month</small></p></div>
+      </div>
+      <p class="note">I don’t promise rankings or bookings. I promise clarity, and assets you can use the same day.</p>
+    </div>
+  </section>
+
+  <section id="work" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Work</p>
+        <h2>Eight places, eight hidden stories</h2>
+        <p>Concept case studies, created to show the method. Each one starts with a sentence a thousand places could sign, and ends with one only that place could.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter case studies">
+        <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
+        <button type="button" id="f-stay" data-f="stay" aria-pressed="false">Stay</button>
+        <button type="button" id="f-table" data-f="table" aria-pressed="false">Table</button>
+      </div>
+      <div class="cases" id="cases"></div>
+    </div>
+  </section>
+
+  <section id="snapshot" class="snap">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="label">Free AI Story Snapshot</p>
+        <h2>Five questions. Two minutes.</h2>
+        <p>Send me the answers on any platform below. Within 48 hours you get two pages: what AI says about you now, the story I found, and three fixes.</p>
+      </div>
+      <ol class="qs">
+        <li>Name of your place, city, and website or listing link</li>
+        <li>What kind of place is it? Hotel, guesthouse, rental, restaurant, café or other</li>
+        <li>Who is the guest you love serving most?</li>
+        <li class="heart">What do guests love about you that isn’t written anywhere online?</li>
+        <li>Name two places nearby that guests compare you with</li>
+      </ol>
+      <div class="where">
+        <a href="https://contra.com/wail_ben_hamida_sg3r4p6f" target="_blank" rel="noopener">Contra</a>
+        <a href="https://www.upwork.com/freelancers/~0199c1dbd2fece9e3e" target="_blank" rel="noopener">Upwork</a>
+        <a href="https://www.fiverr.com/waily1" target="_blank" rel="noopener">Fiverr</a>
+        <a href="https://www.malt.fr/profile/wailbenhamida" target="_blank" rel="noopener">Malt</a>
+        <a href="https://www.linkedin.com/in/wailbenhamida/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <img src="images/wail_profile_pro.jpg" alt="Wail Ben Hamida">
+      <div class="about-text">
+        <p class="label">About</p>
+        <h2>Wail Ben Hamida, founder</h2>
+        <p>I’m a poet, screenwriter and published author who writes the stories of places. Since 2022 I have written, designed and published books on Amazon KDP under my own imprint, Wail’s Book. Words and image are where I come from: I wrote the script and the poem, and gave the voice, for the poem short films “Harmony” and “Elation”. On Instagram you’ll find the visual concepts I created and directed: cinematic, surreal scenes I imagine and stage, shot with professional photographers.</p>
+        <p>STAY → STORY brings that ear to independent hotels and restaurants: I look for the one true detail that makes a place itself, and write it so clearly that people and AI can’t miss it.</p>
+        <div class="films">
+          <a href="https://youtu.be/_qjkNj0RAfo" target="_blank" rel="noopener">▶ Harmony</a>
+          <a href="https://youtu.be/n4H4-sfRaJo" target="_blank" rel="noopener">▶ Elation</a>
+          <a href="https://www.instagram.com/wail_benhamida" target="_blank" rel="noopener">◎ Visual concepts</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>STAY → STORY · Story &amp; AI visibility studio · Remote, worldwide</span>
+    <span>© 2026 Wail Ben Hamida</span>
+  </div>
+</footer>
+
+<script>
+const CASES=[
+ {f:"stay",img:"noor",name:"Casa Noor",type:"Boutique townhouse · 12 rooms",before:"Charming boutique hotel with cozy rooms, a rooftop terrace and friendly staff in the heart of the old town.",story:"Every evening at sunset, Noor lights the courtyard lanterns one by one. By the time you return, the house is glowing, and it is glowing for you.",faq:"Is there a quiet, atmospheric boutique stay in the old town?"},
+ {f:"stay",img:"ledger",name:"The Ledger House",type:"Urban design hotel · 28 rooms",before:"Stylish design hotel in the city center, steps from shopping, with modern rooms and a trendy bar.",story:"For ninety years, this is where the city kept its gold. The vault doors are still here. Tonight, what we guard is your sleep.",faq:"Is there a hotel in a former bank in the city center?"},
+ {f:"stay",img:"alder",name:"Alder & Stone Lodge",type:"Mountain lodge · 16 rooms",before:"Peaceful mountain lodge with stunning views, hiking trails and a delicious homemade breakfast.",story:"The honey on your table was made two hundred meters from your bed. Ask Tomas, and he will take you to meet the bees at dawn.",faq:"Is there a mountain lodge where guests can visit beehives?"},
+ {f:"stay",img:"salt",name:"Salt House",type:"Coastal boutique · 10 rooms",before:"Beautiful seaside hotel with sea views, comfortable rooms and a restaurant serving fresh seafood.",story:"There is no menu at Salt House. At five, Marco’s boat comes in, and whatever the sea gave today is what we cook tonight.",faq:"Is there a small seaside hotel where dinner is the day’s catch?"},
+ {f:"stay",img:"oldpost",name:"The Old Post Inn",type:"Heritage inn since 1790 · 14 rooms",before:"Historic inn full of character, with traditional rooms, a cozy pub and a rich history since 1790.",story:"For two centuries, letters stopped here on their way across the country. They still do. Open the drawer, read the last guest’s page, and leave one for the next.",faq:"Is there a historic inn with a tradition guests take part in?"},
+ {f:"table",img:"nonna",name:"Nonna Rina’s",type:"Family trattoria · since 1968",before:"Authentic Italian restaurant serving homemade pasta and traditional family recipes in a warm atmosphere.",story:"Every morning at seven, Giulia rolls the day’s pasta at the window with her grandmother’s rolling pin. Stop and watch. Then come back for lunch.",faq:"Where can I watch fresh pasta being made by hand?"},
+ {f:"table",img:"ember",name:"Ember",type:"Chef’s tasting room · 22 seats",before:"Innovative fine dining with a seasonal tasting menu, creative dishes and an extensive wine list.",story:"There is no gas in our kitchen. At noon, the chef lights one fire, and every one of tonight’s twelve courses passes through it.",faq:"Is there a tasting menu cooked entirely over wood fire?"},
+ {f:"table",img:"crumb",name:"Corner Crumb",type:"Neighborhood bakery café",before:"Cozy bakery café with fresh bread, pastries and great coffee. The perfect place for breakfast.",story:"At five in the morning, the first loaf out of the oven goes to Sami, who sweeps our street. By seven, the whole neighborhood is in line for the second.",faq:"Which bakery do locals actually go to in this neighborhood?"}
+];
+const box=document.getElementById("cases");
+function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
+function render(f){
+  box.innerHTML=CASES.filter(c=>f==="all"||c.f===f).map(c=>`
+   <article class="case">
+     <img src="images/${c.img}.jpg" alt="${esc(c.name)}" loading="lazy">
+     <div class="case-body">
+       <p class="case-meta">${esc(c.type)} · ${c.f==="stay"?"Stay":"Table"}</p>
+       <h3>${esc(c.name)}</h3>
+       <p class="before">Before: <s>${esc(c.before)}</s></p>
+       <p class="story">“${esc(c.story)}”</p>
+       <p class="faq"><b>AI-ready FAQ</b>${esc(c.faq)}</p>
+     </div>
+   </article>`).join("");
+}
+document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
+  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
+  render(b.dataset.f);
+}));
+render("all");
+</script>
