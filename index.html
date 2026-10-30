@@ -3,296 +3,436 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>STAY → STORY · Wail Ben Hamida</title>
+<meta name="description" content="STAY → STORY finds the hidden story of independent hotels and restaurants and turns it into copy guests remember and AI can recommend.">
 <link rel="canonical" href="https://wailbenhamida.work/">
-<meta property="og:title" content="STAY → STORY — Wail Ben Hamida">
-<meta property="og:description" content="I find the hidden story of independent hotels and restaurants and turn it into copy guests remember and AI can recommend.">
+<meta property="og:title" content="STAY → STORY · We find the story no one sees">
+<meta property="og:description" content="Story and AI visibility for independent hotels and restaurants, by poet and screenwriter Wail Ben Hamida.">
 <meta property="og:image" content="https://wailbenhamida.work/images/noor.jpg">
 <meta property="og:url" content="https://wailbenhamida.work/">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>→</text></svg>">
-<title>STAY → STORY</title>
-<meta name="description" content="STAY → STORY finds the hidden story of independent hotels and restaurants and turns it into copy guests remember and AI can recommend.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0c0b0a">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23e8a24a%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"STAY → STORY","url":"https://wailbenhamida.work/","founder":{"@type":"Person","name":"Wail Ben Hamida","jobTitle":"Brand storyteller","sameAs":["https://www.linkedin.com/in/wailbenhamida/","https://contra.com/wail_ben_hamida_sg3r4p6f","https://www.instagram.com/wail_benhamida"]},"description":"Story and AI visibility for independent hotels and restaurants.","areaServed":"Worldwide"}
+</script>
 <style>
-/* Layout: dusk-lit single column. A lantern-glow hero, then a ledger of offers, then a gallery of places, each card reading like a hotel's guest book entry. */
+/* A night walk with a lantern: dark world, one warm light. The light reveals; the rest stays quiet. */
 :root{
-  --bg:#f6f4f1; --surface:#ffffff; --ink:#1b1d2a; --muted:#5d6070; --line:#dcd8d2;
-  --glow:#c9781e; --glow-soft:#f3e3cc; --night:#1b1d2a; --on-night:#f2eee8;
-  --display:"Instrument Serif", "Iowan Old Style", Georgia, serif;
-  --body:"Figtree", "Segoe UI", system-ui, sans-serif;
-  --mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+  --night:#0c0b0a; --night-2:#14120f; --ink:#efe8dc; --dim:#8a8378; --faint:#3a352e;
+  --flame:#e8a24a; --ember:#c9781e; --paper:#f1ebe0; --paper-ink:#1d1a16; --paper-dim:#6b6358;
+  --display:"Instrument Serif","Iowan Old Style",Georgia,serif;
+  --body:"Figtree","Segoe UI",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --bg:#12131c; --surface:#1b1d2a; --ink:#efebe4; --muted:#a3a3b2; --line:#2e3040;
-  --glow:#e8a24a; --glow-soft:#3a2a17; --night:#0b0c12; --on-night:#f2eee8; color-scheme:dark}}
-:root[data-theme="dark"]{
-  --bg:#12131c; --surface:#1b1d2a; --ink:#efebe4; --muted:#a3a3b2; --line:#2e3040;
-  --glow:#e8a24a; --glow-soft:#3a2a17; --night:#0b0c12; --on-night:#f2eee8; color-scheme:dark}
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
-.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 a{color:inherit}
-a:focus-visible,button:focus-visible{outline:2px solid var(--glow);outline-offset:3px}
-h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;text-wrap:balance;margin:0}
-.label{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--glow)}
+a:focus-visible,button:focus-visible{outline:2px solid var(--flame);outline-offset:4px;border-radius:4px}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.04;margin:0;text-wrap:balance}
 p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding-inline:max(20px,env(safe-area-inset-left,0px))}
+.label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--flame)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 
-/* hero */
-.hero{background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
-.hero::after{content:"";position:absolute;inset:auto -10% -60% auto;width:70vmax;height:70vmax;border-radius:50%;
-  background:radial-gradient(circle, rgba(232,162,74,.32), rgba(232,162,74,0) 60%);pointer-events:none}
-.hero .wrap{padding-block:28px 72px;position:relative;z-index:1}
-.nav{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:64px}
-.brand{font-family:var(--display);font-size:26px;letter-spacing:.02em}
-.brand span{color:#e8a24a}
-.nav-links{display:flex;gap:20px;flex-wrap:wrap;font-size:15px}
-.nav-links a{text-decoration:none;opacity:.8}
-.nav-links a:hover{opacity:1}
-.hero h1{font-size:clamp(44px,7.5vw,92px);max-width:13ch}
-.hero h1 em{color:#e8a24a}
-.hero .lede{font-size:clamp(18px,2vw,21px);max-width:58ch;margin-top:24px;opacity:.88}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
-.btn{display:inline-block;padding:14px 22px;border-radius:999px;font-weight:600;text-decoration:none;font-size:16px}
-.btn-glow{background:#e8a24a;color:#14110c}
-.btn-ghost{border:1px solid rgba(242,238,232,.35);color:var(--on-night)}
-.hero-quote{margin-top:56px;border-left:2px solid #e8a24a;padding-left:18px;max-width:60ch;font-family:var(--display);font-style:italic;font-size:22px;opacity:.9}
-.hero-quote small{display:block;font-family:var(--mono);font-style:normal;font-size:12px;letter-spacing:.1em;text-transform:uppercase;opacity:.65;margin-top:8px}
+/* wick: scroll progress */
+.wick{position:fixed;top:0;left:0;height:2px;width:100%;transform-origin:0 50%;transform:scaleX(var(--p,0));
+  background:linear-gradient(90deg,var(--ember),var(--flame));z-index:60;box-shadow:0 0 12px var(--flame)}
 
-section{padding-block:80px}
-.section-head{display:grid;gap:12px;max-width:62ch;margin-bottom:40px}
-.section-head h2{font-size:clamp(34px,4.5vw,52px)}
-.section-head p{color:var(--muted)}
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:40;transition:background .4s,backdrop-filter .4s}
+.nav.solid{background:rgba(12,11,10,.72);backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;justify-content:space-between;align-items:center;height:68px;gap:16px}
+.brand{font-family:var(--display);font-size:24px;text-decoration:none;letter-spacing:.02em;white-space:nowrap}
+.brand i{font-style:normal;color:var(--flame)}
+.nav-links{display:flex;gap:26px;font-size:14px}
+.nav-links a{text-decoration:none;color:var(--dim);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{font-size:14px;text-decoration:none;border:1px solid var(--faint);padding:8px 16px;border-radius:999px;white-space:nowrap;transition:border-color .2s}
+.nav-cta:hover{border-color:var(--flame)}
+@media (max-width:820px){.nav-links{display:none}}
 
-/* two layers */
-.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
-.layer{border-top:1px solid var(--line);padding-top:20px;display:grid;gap:10px}
-.layer h3{font-size:30px}
-.layer p{color:var(--muted)}
+/* ---------- 1. the lantern ---------- */
+.dark-room{position:relative;height:100svh;min-height:620px;overflow:hidden;cursor:none;touch-action:pan-y}
+.walls{position:absolute;inset:-4%;display:flex;flex-wrap:wrap;align-content:center;gap:.3em 1.1em;padding:4vmin;
+  font-family:var(--display);font-size:clamp(22px,2.6vw,38px);line-height:1.25;user-select:none}
+.walls span{white-space:nowrap}
+.cliches{color:#25211c}
+.truths{color:#f3b765;font-style:italic;text-shadow:0 0 18px rgba(232,162,74,.35);
+  -webkit-mask-image:radial-gradient(circle var(--r,190px) at var(--x,50%) var(--y,45%),#000 0,#000 35%,transparent 100%);
+          mask-image:radial-gradient(circle var(--r,190px) at var(--x,50%) var(--y,45%),#000 0,#000 35%,transparent 100%)}
+.cliches{-webkit-mask-image:radial-gradient(circle var(--r,190px) at var(--x,50%) var(--y,45%),transparent 0,transparent 45%,#000 100%);
+                 mask-image:radial-gradient(circle var(--r,190px) at var(--x,50%) var(--y,45%),transparent 0,transparent 45%,#000 100%)}
+.halo{position:absolute;left:var(--x,50%);top:var(--y,45%);width:calc(var(--r,190px)*3.4);aspect-ratio:1;translate:-50% -50%;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(232,162,74,.26),rgba(232,162,74,.07) 35%,transparent 65%);mix-blend-mode:screen}
+.flame{position:absolute;left:var(--x,50%);top:var(--y,45%);width:10px;height:10px;translate:-50% -50%;border-radius:50%;background:#ffd28a;
+  box-shadow:0 0 18px 6px rgba(232,162,74,.75),0 0 60px 20px rgba(232,162,74,.25);pointer-events:none;animation:flicker 2.6s infinite}
+@keyframes flicker{0%,100%{opacity:1;scale:1}40%{opacity:.85;scale:.92}55%{opacity:1;scale:1.06}80%{opacity:.9;scale:.97}}
+.room-copy{position:absolute;left:0;right:0;bottom:0;padding:0 0 7svh;pointer-events:none;
+  background:linear-gradient(transparent,rgba(12,11,10,.94) 34%,var(--night) 70%)}
+.room-copy .wrap{padding-top:18vh}
+.room-copy h1{font-size:clamp(44px,7vw,96px);max-width:14ch}
+.room-copy h1 em{color:var(--flame)}
+.room-copy .lede{max-width:52ch;color:#b9b1a4;margin-top:20px;font-size:clamp(17px,1.6vw,20px)}
+.room-copy .row{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;pointer-events:auto}
+.hint{position:absolute;top:96px;left:50%;translate:-50% 0;font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);transition:opacity .8s;pointer-events:none;white-space:nowrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:999px;font-weight:600;font-size:15px;text-decoration:none;transition:transform .2s,box-shadow .3s,border-color .2s}
+.btn-flame{background:var(--flame);color:#17110a;box-shadow:0 0 0 rgba(232,162,74,0)}
+.btn-flame:hover{box-shadow:0 0 40px rgba(232,162,74,.45);transform:translateY(-1px)}
+.btn-ghost{border:1px solid #4a443b;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--flame)}
 
-/* method */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px;counter-reset:s}
-.step{display:grid;gap:8px;align-content:start}
-.step b{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--glow)}
-.step h3{font-size:26px}
-.step p{color:var(--muted);font-size:16px}
+/* ---------- 2. manifesto ---------- */
+.manifesto{padding:22vh 0 18vh}
+.manifesto p{font-family:var(--display);font-size:clamp(34px,5.4vw,76px);line-height:1.08;max-width:17ch;color:var(--faint);transition:color 1s ease}
+.manifesto p+p{margin-top:5vh}
+.manifesto p.lit{color:var(--ink)}
+.manifesto p.lit em{color:var(--flame)}
+.manifesto .ai{display:flex;gap:10px;flex-wrap:wrap;margin-top:6vh}
+.manifesto .ai span{font-family:var(--mono);font-size:13px;color:var(--dim);border:1px solid var(--faint);padding:7px 14px;border-radius:999px}
 
-/* offers ledger */
-.offers{display:grid;gap:0;border-top:1px solid var(--line)}
-.offer{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,2fr) auto;gap:24px;padding-block:26px;border-bottom:1px solid var(--line);align-items:baseline}
-.offer h3{font-size:28px}
-.offer .what{color:var(--muted)}
-.offer .price{font-family:var(--mono);font-size:20px;white-space:nowrap;font-variant-numeric:tabular-nums}
-.offer .price small{display:block;font-size:12px;color:var(--muted)}
-.offer.free{background:var(--glow-soft);margin-inline:-16px;padding-inline:16px;border-radius:6px}
-@media (max-width:720px){.offer{grid-template-columns:1fr;gap:8px}}
+/* ---------- 3. the book: chapters ---------- */
+.book-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:end;padding-bottom:10vh;border-bottom:1px solid var(--faint)}
+.book-head h2{font-size:clamp(44px,6vw,84px)}
+.book-head p{color:var(--dim);max-width:46ch}
+.toc{list-style:none;margin:0;padding:0;columns:2;column-gap:32px;font-size:15px}
+.toc li{break-inside:avoid;border-bottom:1px dotted var(--faint)}
+.toc a{display:flex;justify-content:space-between;gap:12px;padding:9px 0;text-decoration:none;color:var(--dim);transition:color .2s}
+.toc a:hover{color:var(--flame)}
+.toc b{font-family:var(--mono);font-weight:400;font-size:12px}
+@media (max-width:820px){.book-head{grid-template-columns:1fr}.toc{columns:1}}
 
-/* gallery */
-.filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px}
-.filters button{font:inherit;font-size:14px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:999px;padding:8px 16px;cursor:pointer}
-.filters button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-.cases{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:28px}
-.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;display:flex;flex-direction:column}
-.case img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;max-width:100%}
-.case-body{padding:20px;display:grid;gap:12px;flex:1;align-content:start}
-.case-meta{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em}
-.case h3{font-size:28px}
-.case .before{font-size:14px;color:var(--muted)}
-.case .before s{text-decoration-color:var(--glow)}
-.case .story{font-family:var(--display);font-style:italic;font-size:20px;line-height:1.35}
-.case .faq{font-size:14px;border-top:1px dashed var(--line);padding-top:10px;color:var(--muted)}
-.case .faq b{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.1em;color:var(--glow);display:block}
-.note{font-size:14px;color:var(--muted);margin-top:24px}
+.chapter{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center;padding:16vh 0;border-bottom:1px solid #1d1a17}
+.chapter:nth-child(even) .frame{order:2}
+.frame{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:4/5;background:#1a1714}
+.frame img{width:100%;height:100%;object-fit:cover;display:block;scale:1.18;filter:brightness(.35) saturate(.6) sepia(.25);transition:scale 2.4s cubic-bezier(.2,.7,.2,1),filter 1.8s ease}
+.chapter.in .frame img{scale:1.02;filter:brightness(.95) saturate(1) sepia(0)}
+.frame figcaption{position:absolute;left:18px;bottom:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75)}
+.frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px rgba(0,0,0,.55);pointer-events:none}
+.page{display:grid;gap:22px}
+.page .num{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+.page h3{font-size:clamp(40px,4.6vw,64px)}
+.page .type{color:var(--dim);font-size:15px;margin-top:-10px}
+.said{display:grid;gap:6px}
+.said small,.truth small,.ask small{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--dim)}
+.cliche{position:relative;display:inline;color:#6f685e;font-size:16px;line-height:1.55}
+.cliche .strike{position:absolute;left:0;top:55%;height:1px;width:100%;background:var(--ember);transform-origin:0 50%;transform:scaleX(0);transition:transform 1.1s .5s cubic-bezier(.6,0,.2,1)}
+.chapter.in .cliche .strike{transform:scaleX(1)}
+.cliche-wrap{position:relative}
+.truth{display:grid;gap:8px}
+.truth p{font-family:var(--display);font-style:italic;font-size:clamp(24px,2.4vw,32px);line-height:1.28;color:var(--ink)}
+.truth p .w{opacity:0;filter:blur(6px);transition:opacity .7s,filter .7s;transition-delay:calc(1.4s + var(--i)*45ms)}
+.chapter.in .truth p .w{opacity:1;filter:blur(0)}
+.ask{display:grid;gap:8px;max-width:44ch}
+.bubble{background:#17140f;border:1px solid #2a251f;border-radius:16px 16px 16px 4px;padding:12px 16px;font-size:15px;color:#cfc6b8;opacity:0;translate:0 10px;transition:opacity .7s 2.6s,translate .7s 2.6s}
+.chapter.in .bubble{opacity:1;translate:0 0}
+.bubble::before{content:"Guest → AI  ";font-family:var(--mono);font-size:11px;color:var(--flame);letter-spacing:.08em}
+@media (max-width:820px){.chapter{grid-template-columns:1fr;padding:10vh 0}.chapter:nth-child(even) .frame{order:0}.frame{aspect-ratio:4/3}}
+.disclaim{color:var(--dim);font-size:14px;padding:6vh 0 0;max-width:60ch}
 
-/* snapshot */
-.snap{background:var(--night);color:var(--on-night)}
-.snap .section-head p{color:rgba(242,238,232,.75)}
-.qs{display:grid;gap:14px;max-width:70ch;padding:0;margin:0;list-style:none;counter-reset:q}
-.qs li{counter-increment:q;display:grid;grid-template-columns:40px minmax(0,1fr);gap:10px;font-size:18px;padding-block:12px;border-bottom:1px solid rgba(242,238,232,.15)}
-.qs li::before{content:counter(q,decimal-leading-zero);font-family:var(--mono);color:#e8a24a;font-size:14px;padding-top:4px}
-.qs li.heart{color:#e8a24a}
-.where{display:flex;gap:12px;flex-wrap:wrap;margin-top:36px}
-.where a{border:1px solid rgba(242,238,232,.3);border-radius:999px;padding:10px 18px;text-decoration:none;font-size:15px}
-.where a:hover{border-color:#e8a24a}
+/* ---------- 4. two layers ---------- */
+.layers{padding:20vh 0 10vh}
+.layers-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px;margin-top:6vh;background:var(--faint);border:1px solid var(--faint)}
+.layer{background:var(--night);padding:clamp(28px,4vw,56px);display:grid;gap:14px;align-content:start;position:relative;overflow:hidden}
+.layer h3{font-size:clamp(40px,4.4vw,60px)}
+.layer p{color:var(--dim);max-width:40ch}
+.layer .glyph{font-family:var(--mono);font-size:12px;color:var(--flame)}
+.layer::after{content:"";position:absolute;width:280px;aspect-ratio:1;border-radius:50%;right:-120px;bottom:-140px;background:radial-gradient(circle,rgba(232,162,74,.14),transparent 65%)}
+.section-title{font-size:clamp(40px,5.6vw,78px);max-width:16ch;margin-top:14px}
+@media (max-width:720px){.layers-grid{grid-template-columns:1fr}}
 
-/* about */
-.about{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:40px;align-items:start}
-.about img{width:100%;max-width:220px;aspect-ratio:1;object-fit:cover;border-radius:50%}
-.about-text{display:grid;gap:16px;max-width:62ch}
-.about-text h2{font-size:clamp(32px,4vw,46px)}
-.about-text p{color:var(--muted)}
-.films{display:flex;gap:12px;flex-wrap:wrap}
-.films a{font-family:var(--mono);font-size:13px;border:1px solid var(--line);border-radius:6px;padding:8px 12px;text-decoration:none}
-.films a:hover{border-color:var(--glow)}
-@media (max-width:640px){.about{grid-template-columns:1fr}}
+/* method: the path */
+.path{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin-top:8vh;position:relative}
+.path::before{content:"";position:absolute;left:0;right:0;top:7px;height:1px;background:linear-gradient(90deg,var(--flame),var(--faint))}
+.stop{display:grid;gap:10px;padding-top:34px;position:relative}
+.stop::before{content:"";position:absolute;top:0;left:0;width:15px;height:15px;border-radius:50%;background:var(--night);border:1px solid var(--flame);box-shadow:0 0 14px rgba(232,162,74,.5)}
+.stop b{font-family:var(--mono);font-weight:400;font-size:12px;color:var(--flame);letter-spacing:.12em}
+.stop h3{font-size:30px}
+.stop p{color:var(--dim);font-size:15px}
+@media (max-width:820px){.path{grid-template-columns:1fr 1fr}.path::before{display:none}}
+@media (max-width:480px){.path{grid-template-columns:1fr}}
 
-footer{border-top:1px solid var(--line)}
-footer .wrap{padding-block:32px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--muted)}
-@media (prefers-reduced-motion:no-preference){.case{transition:transform .25s ease}.case:hover{transform:translateY(-3px)}}
+/* ---------- 5. offers: room keys on paper ---------- */
+.desk{background:var(--paper);color:var(--paper-ink);padding:18vh 0;margin-top:14vh;position:relative}
+.desk .label{color:var(--ember)}
+.desk .section-title{color:var(--paper-ink)}
+.desk .sub{color:var(--paper-dim);max-width:52ch;margin-top:16px}
+.keys{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;margin-top:9vh}
+.key{position:relative;background:#fbf7f0;border:1px solid #dcd2c2;border-radius:10px 10px 46px 46px;padding:58px 22px 30px;display:grid;gap:12px;align-content:start;
+  box-shadow:0 1px 0 #fff inset,0 18px 40px -24px rgba(60,40,10,.45);transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s;transform-origin:50% 0}
+.key::before{content:"";position:absolute;top:18px;left:50%;translate:-50% 0;width:18px;height:18px;border-radius:50%;background:var(--paper);border:1px solid #cdbfa9;box-shadow:inset 0 2px 3px rgba(0,0,0,.15)}
+.key:hover{transform:rotate(-1.5deg) translateY(-4px);box-shadow:0 1px 0 #fff inset,0 28px 50px -24px rgba(60,40,10,.55)}
+.key .room{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--paper-dim);text-transform:uppercase}
+.key h3{font-size:30px}
+.key p{color:var(--paper-dim);font-size:15px}
+.key .price{font-family:var(--display);font-size:46px;line-height:1;margin-top:auto;padding-top:14px;border-top:1px dashed #d4c8b4}
+.key .price small{font-family:var(--mono);font-size:12px;color:var(--paper-dim);margin-left:6px}
+.key.free{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+.key.free p,.key.free .room,.key.free .price small{color:#b3a996}
+.key.free .price{color:var(--flame);border-color:#3b352d}
+.key.free::before{background:var(--paper-ink);border-color:#4b4338}
+.promise{margin-top:6vh;font-family:var(--display);font-style:italic;font-size:clamp(22px,2.2vw,28px);color:var(--paper-dim);max-width:46ch}
+@media (max-width:980px){.keys{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.keys{grid-template-columns:1fr}}
+
+/* ---------- 6. snapshot ---------- */
+.snapshot{padding:22vh 0 18vh;position:relative;overflow:hidden}
+.snapshot::before{content:"";position:absolute;left:50%;top:0;translate:-50% -40%;width:120vmax;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(232,162,74,.12),transparent 55%);pointer-events:none}
+.snap-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,90px);position:relative}
+.qs{list-style:none;margin:0;padding:0;counter-reset:q}
+.qs li{counter-increment:q;display:grid;grid-template-columns:52px minmax(0,1fr);padding:20px 0;border-bottom:1px solid var(--faint);font-size:19px}
+.qs li::before{content:counter(q,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--dim);padding-top:5px}
+.qs li.heart{color:var(--flame);font-family:var(--display);font-style:italic;font-size:26px;line-height:1.25}
+.qs li.heart::before{color:var(--flame)}
+.where{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
+.where a{border:1px solid #3a352e;border-radius:999px;padding:10px 18px;text-decoration:none;font-size:14px;transition:border-color .2s,color .2s}
+.where a:hover{border-color:var(--flame);color:var(--flame)}
+@media (max-width:820px){.snap-grid{grid-template-columns:1fr}}
+
+/* ---------- 7. the author ---------- */
+.author{padding:12vh 0 20vh;border-top:1px solid var(--faint)}
+.author-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(32px,6vw,90px);align-items:center}
+.portrait{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;max-width:420px}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.05) brightness(.9);transition:filter 1.2s}
+.portrait:hover img{filter:grayscale(.15) contrast(1) brightness(1)}
+.portrait::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 70% 20%,rgba(232,162,74,.28),transparent 55%);mix-blend-mode:screen;pointer-events:none}
+.author h2{font-size:clamp(44px,5.6vw,80px)}
+.author .bio{display:grid;gap:18px;color:#b9b1a4;max-width:58ch;margin-top:24px}
+.author .sig{font-family:var(--display);font-style:italic;font-size:26px;color:var(--ink)}
+.works{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.works a{display:inline-flex;gap:10px;align-items:center;font-family:var(--mono);font-size:13px;border:1px solid #3a352e;border-radius:999px;padding:10px 16px;text-decoration:none;transition:border-color .2s}
+.works a:hover{border-color:var(--flame)}
+.works a span{color:var(--flame)}
+@media (max-width:820px){.author-grid{grid-template-columns:1fr}}
+
+/* ---------- 8. lights out ---------- */
+.out{padding:16vh 0 8vh;text-align:center;border-top:1px solid var(--faint)}
+.out p.last{font-family:var(--display);font-size:clamp(34px,5vw,68px);max-width:18ch;margin:0 auto}
+.out p.last em{color:var(--flame)}
+.out .btn{margin-top:40px}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:14vh;font-size:13px;color:var(--dim);font-family:var(--mono);letter-spacing:.04em}
+
+/* generic reveal */
+.rise{opacity:0;translate:0 26px;transition:opacity 1s ease,translate 1s cubic-bezier(.2,.7,.2,1)}
+.rise.in{opacity:1;translate:0 0}
+
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .rise{opacity:1;translate:none}
+  .frame img{scale:1;filter:none}
+  .truth p .w{opacity:1;filter:none}
+  .bubble{opacity:1;translate:none}
+  .cliche .strike{transform:scaleX(1)}
+  html{scroll-behavior:auto}
+}
 </style>
+</head>
+<body>
+<div class="wick" id="wick" aria-hidden="true"></div>
 
-<header class="hero">
+<nav class="nav" id="nav" aria-label="Main">
   <div class="wrap">
-    <nav class="nav" aria-label="Main">
-      <div class="brand">STAY <span>→</span> STORY</div>
-      <div class="nav-links">
-        <a href="#offers">Offers</a>
-        <a href="#work">Work</a>
-        <a href="#snapshot">Free Snapshot</a>
-        <a href="#about">About</a>
-      </div>
-    </nav>
-    <p class="label">Story &amp; AI visibility for independent hotels and restaurants</p>
-    <h1 style="margin-top:18px">We find the story <em>no one sees.</em></h1>
-    <p class="lede">Most independent hotels and restaurants are better than they look online. Their best story hides in a review nobody quotes, a detail only regulars notice. I find it, write it, and make it clear enough that guests remember it and ChatGPT, Perplexity and Google AI can recommend it.</p>
-    <div class="cta-row">
-      <a class="btn btn-glow" href="#snapshot">Get your free AI Story Snapshot</a>
-      <a class="btn btn-ghost" href="#work">See the work</a>
+    <a class="brand" href="#top">STAY <i>→</i> STORY</a>
+    <div class="nav-links">
+      <a href="#chapters">The work</a>
+      <a href="#method">Method</a>
+      <a href="#keys">Offers</a>
+      <a href="#author">Author</a>
     </div>
-    <p class="hero-quote">“Every evening at sunset, Noor lights the courtyard lanterns one by one. By the time you return, the house is glowing, and it is glowing for you.”<small>Casa Noor · concept case study</small></p>
+    <a class="nav-cta" href="#snapshot">Free Snapshot</a>
+  </div>
+</nav>
+
+<header class="dark-room" id="top">
+  <div class="walls cliches" id="cliches" aria-hidden="true"></div>
+  <div class="walls truths" id="truths" aria-hidden="true"></div>
+  <div class="halo" aria-hidden="true"></div>
+  <div class="flame" aria-hidden="true"></div>
+  <p class="hint" id="hint">Move the light</p>
+  <div class="room-copy">
+    <div class="wrap">
+      <p class="label">Story &amp; AI visibility · independent hotels &amp; restaurants</p>
+      <h1 style="margin-top:16px">We find the story <em>no one sees.</em></h1>
+      <p class="lede">Every place is written in the same tired words. Under them is the one true detail guests remember. I find it, write it, and make it clear enough that people, and AI, can’t miss it.</p>
+      <div class="row">
+        <a class="btn btn-flame" href="#snapshot">Get your free AI Story Snapshot</a>
+        <a class="btn btn-ghost" href="#chapters">Read the eight stories ↓</a>
+      </div>
+    </div>
   </div>
 </header>
 
 <main>
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Two layers, one job</p>
-        <h2>A story people remember. Facts AI can repeat.</h2>
-        <p>Creative studios sell the story. SEO agencies sell visibility. Travelers now ask AI where to stay and eat, so a place needs both at once.</p>
+  <section class="manifesto wrap" aria-label="Why it matters">
+    <p class="rv">Travelers no longer search.<br><em>They ask.</em></p>
+    <p class="rv">And the machine answers with what is <em>clear, specific and true.</em></p>
+    <p class="rv">“Cozy rooms and friendly staff” is none of those.</p>
+    <div class="ai rise" aria-label="Assistants guests ask"><span>ChatGPT</span><span>Perplexity</span><span>Google AI</span><span>Gemini</span><span>Claude</span></div>
+  </section>
+
+  <section class="wrap" id="chapters" aria-labelledby="book-title">
+    <div class="book-head">
+      <div>
+        <p class="label">The work · a book of places</p>
+        <h2 id="book-title" style="margin-top:14px">Eight places.<br>Eight hidden stories.</h2>
+        <p style="margin-top:20px">Each chapter opens with a sentence a thousand places could sign, and closes with one only that place could.</p>
       </div>
-      <div class="layers">
-        <div class="layer"><h3>Story</h3><p>Identity, positioning and the hidden story of your place, written in three lengths: website, booking listings, and a short bio.</p></div>
-        <div class="layer"><h3>Discovery</h3><p>Clear, consistent facts and answer-ready FAQs, so AI assistants understand what makes you different and can say it back to the next guest.</p></div>
-      </div>
+      <ol class="toc" id="toc"></ol>
+    </div>
+    <div id="book"></div>
+    <p class="disclaim">These are concept case studies, created to show the method. Names, people and places are imagined; the craft is real.</p>
+  </section>
+
+  <section class="layers wrap" id="method" aria-labelledby="layers-title">
+    <p class="label">Two layers, one job</p>
+    <h2 class="section-title" id="layers-title">A story people remember. <em style="color:var(--flame)">Facts AI can repeat.</em></h2>
+    <div class="layers-grid">
+      <div class="layer rise"><span class="glyph">I · For people</span><h3>Story</h3><p>Identity, positioning and the hidden story of your place, written in three lengths: website, booking listings, and a short bio.</p></div>
+      <div class="layer rise"><span class="glyph">II · For machines</span><h3>Discovery</h3><p>Clear, consistent facts and answer-ready FAQs, so AI assistants understand what makes you different and can say it to the next guest.</p></div>
+    </div>
+    <div class="path">
+      <div class="stop rise"><b>01</b><h3>Listen</h3><p>Reviews, listings, competitors, and what AI says today about places like yours.</p></div>
+      <div class="stop rise"><b>02</b><h3>Find</h3><p>The detail guests keep mentioning that nobody has written down. That is the story.</p></div>
+      <div class="stop rise"><b>03</b><h3>Write</h3><p>Place DNA, ideal guests, positioning, the story in three lengths, copy for every platform.</p></div>
+      <div class="stop rise"><b>04</b><h3>Make it findable</h3><p>Ten AI-ready FAQs, consistent facts everywhere, and a before/after check of what AI says.</p></div>
     </div>
   </section>
 
-  <section style="padding-top:0">
+  <section class="desk" id="keys" aria-labelledby="keys-title">
     <div class="wrap">
-      <div class="section-head">
-        <p class="label">The method</p>
-        <h2>How a place becomes a story</h2>
+      <p class="label">Offers · choose your key</p>
+      <h2 class="section-title" id="keys-title">Start free. Go as deep as your place needs.</h2>
+      <p class="sub">Delivered remotely, worldwide. Copy you can paste the same day.</p>
+      <div class="keys">
+        <article class="key free rise"><span class="room">Room 00 · start here</span><h3>AI Story Snapshot</h3><p>What AI says about you today, the hidden story I found, and three quick fixes. Two pages within 48 hours.</p><p class="price">Free</p></article>
+        <article class="key rise"><span class="room">Room 01</span><h3>Story Kit</h3><p>Place DNA, two guest profiles, positioning, your story in three lengths, ready-to-paste copy for website, Booking, Airbnb, Google and menus, ten AI-ready FAQs, five next actions.</p><p class="price">$190<small>3 days</small></p></article>
+        <article class="key rise"><span class="room">Room 02 · signature</span><h3>Story &amp; Visibility</h3><p>The Story Kit plus a full website copy rewrite, FAQ and structured data ready to install, and an AI visibility report after 60 days.</p><p class="price">$590<small>7 days</small></p></article>
+        <article class="key rise"><span class="room">Room 03 · ongoing</span><h3>Visibility Care</h3><p>Every month: measure what AI says about you, refresh your copy, add seasonal stories.</p><p class="price">$149<small>/ month</small></p></article>
       </div>
-      <div class="steps">
-        <div class="step"><b>Step 1</b><h3>Listen</h3><p>Reviews, listings, competitors, and the answers AI gives today about places like yours.</p></div>
-        <div class="step"><b>Step 2</b><h3>Find</h3><p>The detail guests keep mentioning that nobody has written down. That is the story.</p></div>
-        <div class="step"><b>Step 3</b><h3>Write</h3><p>Place DNA, ideal guests, positioning, the story in three lengths, copy for every platform.</p></div>
-        <div class="step"><b>Step 4</b><h3>Make it findable</h3><p>Ten AI-ready FAQs, consistent facts everywhere, and a before/after check of what AI says.</p></div>
-      </div>
+      <p class="promise">I don’t promise rankings or bookings. I promise clarity, and words you can use the same day.</p>
     </div>
   </section>
 
-  <section id="offers" style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Offers</p>
-        <h2>Start free. Go as deep as your place needs.</h2>
-        <p>Delivered remotely, worldwide. Copy you can paste the same day.</p>
+  <section class="snapshot" id="snapshot" aria-labelledby="snap-title">
+    <div class="wrap snap-grid">
+      <div class="rise">
+        <p class="label">Your first chapter is free</p>
+        <h2 class="section-title" id="snap-title">Five questions. Two minutes.</h2>
+        <p style="color:var(--dim);margin-top:20px;max-width:44ch">Send me your answers on any platform below. Within 48 hours you get two pages: what AI says about you now, the story I found, and three fixes.</p>
+        <div class="where">
+          <a href="https://contra.com/wail_ben_hamida_sg3r4p6f" target="_blank" rel="noopener">Contra</a>
+          <a href="https://www.upwork.com/freelancers/~0199c1dbd2fece9e3e" target="_blank" rel="noopener">Upwork</a>
+          <a href="https://www.fiverr.com/waily1" target="_blank" rel="noopener">Fiverr</a>
+          <a href="https://www.malt.fr/profile/wailbenhamida" target="_blank" rel="noopener">Malt</a>
+          <a href="https://www.linkedin.com/in/wailbenhamida/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
       </div>
-      <div class="offers">
-        <div class="offer free"><h3>AI Story Snapshot</h3><p class="what">What AI says about you today, the hidden story I found, and three quick fixes. Two pages within 48 hours.</p><p class="price">Free</p></div>
-        <div class="offer"><h3>Story Kit</h3><p class="what">For hotels, guesthouses, rentals, restaurants and cafés. Place DNA, two guest profiles, positioning, your story in three lengths, ready-to-paste copy for your website, Booking, Airbnb, Google and menus, ten AI-ready FAQs and five next actions.</p><p class="price">$190<small>3 days</small></p></div>
-        <div class="offer"><h3>Signature Story &amp; Visibility</h3><p class="what">The Story Kit plus a full website copy rewrite, FAQ and structured data ready to install, and an AI visibility report after 60 days.</p><p class="price">$590<small>7 days</small></p></div>
-        <div class="offer"><h3>Visibility Care</h3><p class="what">Monthly: measure what AI says about you, refresh your copy, and add seasonal stories.</p><p class="price">$149<small>per month</small></p></div>
-      </div>
-      <p class="note">I don’t promise rankings or bookings. I promise clarity, and assets you can use the same day.</p>
-    </div>
-  </section>
-
-  <section id="work" style="padding-top:0">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Work</p>
-        <h2>Eight places, eight hidden stories</h2>
-        <p>Concept case studies, created to show the method. Each one starts with a sentence a thousand places could sign, and ends with one only that place could.</p>
-      </div>
-      <div class="filters" role="group" aria-label="Filter case studies">
-        <button type="button" id="f-all" data-f="all" aria-pressed="true">All</button>
-        <button type="button" id="f-stay" data-f="stay" aria-pressed="false">Stay</button>
-        <button type="button" id="f-table" data-f="table" aria-pressed="false">Table</button>
-      </div>
-      <div class="cases" id="cases"></div>
-    </div>
-  </section>
-
-  <section id="snapshot" class="snap">
-    <div class="wrap">
-      <div class="section-head">
-        <p class="label">Free AI Story Snapshot</p>
-        <h2>Five questions. Two minutes.</h2>
-        <p>Send me the answers on any platform below. Within 48 hours you get two pages: what AI says about you now, the story I found, and three fixes.</p>
-      </div>
-      <ol class="qs">
+      <ol class="qs rise">
         <li>Name of your place, city, and website or listing link</li>
         <li>What kind of place is it? Hotel, guesthouse, rental, restaurant, café or other</li>
         <li>Who is the guest you love serving most?</li>
         <li class="heart">What do guests love about you that isn’t written anywhere online?</li>
         <li>Name two places nearby that guests compare you with</li>
       </ol>
-      <div class="where">
-        <a href="https://contra.com/wail_ben_hamida_sg3r4p6f" target="_blank" rel="noopener">Contra</a>
-        <a href="https://www.upwork.com/freelancers/~0199c1dbd2fece9e3e" target="_blank" rel="noopener">Upwork</a>
-        <a href="https://www.fiverr.com/waily1" target="_blank" rel="noopener">Fiverr</a>
-        <a href="https://www.malt.fr/profile/wailbenhamida" target="_blank" rel="noopener">Malt</a>
-        <a href="https://www.linkedin.com/in/wailbenhamida/" target="_blank" rel="noopener">LinkedIn</a>
-      </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="wrap about">
-      <img src="images/wail_profile_pro.jpg" alt="Wail Ben Hamida">
-      <div class="about-text">
-        <p class="label">About</p>
-        <h2>Wail Ben Hamida, founder</h2>
-        <p>I’m a poet, screenwriter and published author who writes the stories of places. Since 2022 I have written, designed and published books on Amazon KDP under my own imprint, Wail’s Book. Words and image are where I come from: I wrote the script and the poem, and gave the voice, for the poem short films “Harmony” and “Elation”. On Instagram you’ll find the visual concepts I created and directed: cinematic, surreal scenes I imagine and stage, shot with professional photographers.</p>
-        <p>STAY → STORY brings that ear to independent hotels and restaurants: I look for the one true detail that makes a place itself, and write it so clearly that people and AI can’t miss it.</p>
-        <div class="films">
-          <a href="https://youtu.be/_qjkNj0RAfo" target="_blank" rel="noopener">▶ Harmony</a>
-          <a href="https://youtu.be/n4H4-sfRaJo" target="_blank" rel="noopener">▶ Elation</a>
-          <a href="https://www.instagram.com/wail_benhamida" target="_blank" rel="noopener">◎ Visual concepts</a>
+  <section class="author" id="author" aria-labelledby="author-title">
+    <div class="wrap author-grid">
+      <figure class="portrait rise" style="margin:0"><img src="images/wail_profile_pro.jpg" alt="Portrait of Wail Ben Hamida" loading="lazy"></figure>
+      <div class="rise">
+        <p class="label">The author</p>
+        <h2 id="author-title" style="margin-top:14px">Wail Ben Hamida</h2>
+        <div class="bio">
+          <p>I’m a poet, screenwriter and published author who writes the stories of places. Since 2022 I have written, designed and published books on Amazon KDP under my own imprint, Wail’s Book.</p>
+          <p>Words and image are where I come from. I wrote the script and the poem, and gave the voice, for the poem short films “Harmony” and “Elation”. On Instagram you’ll find the visual concepts I created and directed: cinematic, surreal scenes I imagine and stage, shot with professional photographers.</p>
+          <p class="sig">STAY → STORY brings that ear and that eye to independent hotels and restaurants.</p>
+        </div>
+        <div class="works">
+          <a href="https://youtu.be/_qjkNj0RAfo" target="_blank" rel="noopener"><span>▶</span> Harmony</a>
+          <a href="https://youtu.be/n4H4-sfRaJo" target="_blank" rel="noopener"><span>▶</span> Elation</a>
+          <a href="https://www.instagram.com/wail_benhamida" target="_blank" rel="noopener"><span>◎</span> Visual concepts</a>
         </div>
       </div>
     </div>
   </section>
-</main>
 
-<footer>
-  <div class="wrap">
-    <span>STAY → STORY · Story &amp; AI visibility studio · Remote, worldwide</span>
-    <span>© 2026 Wail Ben Hamida</span>
-  </div>
-</footer>
+  <section class="out wrap" aria-label="Closing">
+    <p class="last rise">Your place already has a story.<br><em>Let’s light it.</em></p>
+    <a class="btn btn-flame rise" href="#snapshot">Start with the free Snapshot</a>
+    <div class="foot"><span>STAY → STORY · story &amp; AI visibility studio · remote, worldwide</span><span>© 2026 Wail Ben Hamida</span></div>
+  </section>
+</main>
 
 <script>
 const CASES=[
- {f:"stay",img:"noor",name:"Casa Noor",type:"Boutique townhouse · 12 rooms",before:"Charming boutique hotel with cozy rooms, a rooftop terrace and friendly staff in the heart of the old town.",story:"Every evening at sunset, Noor lights the courtyard lanterns one by one. By the time you return, the house is glowing, and it is glowing for you.",faq:"Is there a quiet, atmospheric boutique stay in the old town?"},
- {f:"stay",img:"ledger",name:"The Ledger House",type:"Urban design hotel · 28 rooms",before:"Stylish design hotel in the city center, steps from shopping, with modern rooms and a trendy bar.",story:"For ninety years, this is where the city kept its gold. The vault doors are still here. Tonight, what we guard is your sleep.",faq:"Is there a hotel in a former bank in the city center?"},
- {f:"stay",img:"alder",name:"Alder & Stone Lodge",type:"Mountain lodge · 16 rooms",before:"Peaceful mountain lodge with stunning views, hiking trails and a delicious homemade breakfast.",story:"The honey on your table was made two hundred meters from your bed. Ask Tomas, and he will take you to meet the bees at dawn.",faq:"Is there a mountain lodge where guests can visit beehives?"},
- {f:"stay",img:"salt",name:"Salt House",type:"Coastal boutique · 10 rooms",before:"Beautiful seaside hotel with sea views, comfortable rooms and a restaurant serving fresh seafood.",story:"There is no menu at Salt House. At five, Marco’s boat comes in, and whatever the sea gave today is what we cook tonight.",faq:"Is there a small seaside hotel where dinner is the day’s catch?"},
- {f:"stay",img:"oldpost",name:"The Old Post Inn",type:"Heritage inn since 1790 · 14 rooms",before:"Historic inn full of character, with traditional rooms, a cozy pub and a rich history since 1790.",story:"For two centuries, letters stopped here on their way across the country. They still do. Open the drawer, read the last guest’s page, and leave one for the next.",faq:"Is there a historic inn with a tradition guests take part in?"},
- {f:"table",img:"nonna",name:"Nonna Rina’s",type:"Family trattoria · since 1968",before:"Authentic Italian restaurant serving homemade pasta and traditional family recipes in a warm atmosphere.",story:"Every morning at seven, Giulia rolls the day’s pasta at the window with her grandmother’s rolling pin. Stop and watch. Then come back for lunch.",faq:"Where can I watch fresh pasta being made by hand?"},
- {f:"table",img:"ember",name:"Ember",type:"Chef’s tasting room · 22 seats",before:"Innovative fine dining with a seasonal tasting menu, creative dishes and an extensive wine list.",story:"There is no gas in our kitchen. At noon, the chef lights one fire, and every one of tonight’s twelve courses passes through it.",faq:"Is there a tasting menu cooked entirely over wood fire?"},
- {f:"table",img:"crumb",name:"Corner Crumb",type:"Neighborhood bakery café",before:"Cozy bakery café with fresh bread, pastries and great coffee. The perfect place for breakfast.",story:"At five in the morning, the first loaf out of the oven goes to Sami, who sweeps our street. By seven, the whole neighborhood is in line for the second.",faq:"Which bakery do locals actually go to in this neighborhood?"}
+ {f:"Stay",img:"noor",name:"Casa Noor",type:"Boutique townhouse · 12 rooms",before:"Charming boutique hotel with cozy rooms, a rooftop terrace and friendly staff in the heart of the old town.",story:"Every evening at sunset, Noor lights the courtyard lanterns one by one. By the time you return, the house is glowing, and it is glowing for you.",faq:"Is there a quiet, atmospheric boutique stay in the old town?"},
+ {f:"Stay",img:"ledger",name:"The Ledger House",type:"Urban design hotel · 28 rooms",before:"Stylish design hotel in the city center, steps from shopping, with modern rooms and a trendy bar.",story:"For ninety years, this is where the city kept its gold. The vault doors are still here. Tonight, what we guard is your sleep.",faq:"Is there a hotel in a former bank in the city center?"},
+ {f:"Stay",img:"alder",name:"Alder & Stone Lodge",type:"Mountain lodge · 16 rooms",before:"Peaceful mountain lodge with stunning views, hiking trails and a delicious homemade breakfast.",story:"The honey on your table was made two hundred meters from your bed. Ask Tomas, and he will take you to meet the bees at dawn.",faq:"Is there a mountain lodge where guests can visit beehives?"},
+ {f:"Stay",img:"salt",name:"Salt House",type:"Coastal boutique · 10 rooms",before:"Beautiful seaside hotel with sea views, comfortable rooms and a restaurant serving fresh seafood.",story:"There is no menu at Salt House. At five, Marco’s boat comes in, and whatever the sea gave today is what we cook tonight.",faq:"Is there a small seaside hotel where dinner is the day’s catch?"},
+ {f:"Stay",img:"oldpost",name:"The Old Post Inn",type:"Heritage inn since 1790 · 14 rooms",before:"Historic inn full of character, with traditional rooms, a cozy pub and a rich history since 1790.",story:"For two centuries, letters stopped here on their way across the country. They still do. Open the drawer, read the last guest’s page, and leave one for the next.",faq:"Is there a historic inn with a tradition guests take part in?"},
+ {f:"Table",img:"nonna",name:"Nonna Rina’s",type:"Family trattoria · since 1968",before:"Authentic Italian restaurant serving homemade pasta and traditional family recipes in a warm atmosphere.",story:"Every morning at seven, Giulia rolls the day’s pasta at the window with her grandmother’s rolling pin. Stop and watch. Then come back for lunch.",faq:"Where can I watch fresh pasta being made by hand?"},
+ {f:"Table",img:"ember",name:"Ember",type:"Chef’s tasting room · 22 seats",before:"Innovative fine dining with a seasonal tasting menu, creative dishes and an extensive wine list.",story:"There is no gas in our kitchen. At noon, the chef lights one fire, and every one of tonight’s twelve courses passes through it.",faq:"Is there a tasting menu cooked entirely over wood fire?"},
+ {f:"Table",img:"crumb",name:"Corner Crumb",type:"Neighborhood bakery café",before:"Cozy bakery café with fresh bread, pastries and great coffee. The perfect place for breakfast.",story:"At five in the morning, the first loaf out of the oven goes to Sami, who sweeps our street. By seven, the whole neighborhood is in line for the second.",faq:"Which bakery do locals actually go to in this neighborhood?"}
 ];
-const box=document.getElementById("cases");
-function esc(s){const d=document.createElement("div");d.textContent=s;return d.innerHTML}
-function render(f){
-  box.innerHTML=CASES.filter(c=>f==="all"||c.f===f).map(c=>`
-   <article class="case">
-     <img src="images/${c.img}.jpg" alt="${esc(c.name)}" loading="lazy">
-     <div class="case-body">
-       <p class="case-meta">${esc(c.type)} · ${c.f==="stay"?"Stay":"Table"}</p>
-       <h3>${esc(c.name)}</h3>
-       <p class="before">Before: <s>${esc(c.before)}</s></p>
-       <p class="story">“${esc(c.story)}”</p>
-       <p class="faq"><b>AI-ready FAQ</b>${esc(c.faq)}</p>
-     </div>
-   </article>`).join("");
+const esc=s=>{const d=document.createElement("div");d.textContent=s;return d.innerHTML};
+const roman=["I","II","III","IV","V","VI","VII","VIII"];
+
+/* the walls: clichés on top, truths underneath */
+const CLICHES=["cozy rooms","friendly staff","in the heart of the city","stunning views","authentic cuisine","a warm atmosphere","perfect for families","modern amenities","hidden gem","unforgettable experience","steps from everything","homemade breakfast","rich history","great value","something for everyone","relaxing getaway","fresh local ingredients","charming décor","welcoming hosts","a true oasis"];
+const TRUTHS=["Noor lights the lanterns one by one","the vault doors are still here","meet the bees at dawn","whatever the sea gave today","read the last guest’s page","her grandmother’s rolling pin","one fire, twelve courses","the first loaf goes to Sami","it is glowing for you","we guard your sleep","letters still stop here","stop and watch","Marco’s boat comes in at five","honey from two hundred meters away","the neighborhood lines up by seven"];
+function fill(el,words,n){let h="";for(let i=0;i<n;i++)h+=`<span>${esc(words[i%words.length])}</span>`;el.innerHTML=h}
+fill(document.getElementById("cliches"),CLICHES,90);
+fill(document.getElementById("truths"),[...TRUTHS].sort(()=>Math.random()-.5).concat(TRUTHS),90);
+
+const room=document.querySelector(".dark-room"),hint=document.getElementById("hint");
+const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+let tx=innerWidth*.62,ty=innerHeight*.38,x=tx,y=ty,moved=false,t0=performance.now();
+room.style.setProperty("--r",Math.max(140,Math.min(240,innerWidth*.16))+"px");
+function aim(e){const r=room.getBoundingClientRect();const p=e.touches?e.touches[0]:e;tx=p.clientX-r.left;ty=p.clientY-r.top;if(!moved){moved=true;hint.style.opacity=0}}
+room.addEventListener("pointermove",aim);
+room.addEventListener("touchmove",aim,{passive:true});
+function loop(now){
+  if(!moved){const t=(now-t0)/1000;tx=innerWidth*(.5+.28*Math.sin(t*.45));ty=room.clientHeight*(.34+.14*Math.sin(t*.7))}
+  x+=(tx-x)*(reduce?1:.12);y+=(ty-y)*(reduce?1:.12);
+  room.style.setProperty("--x",x+"px");room.style.setProperty("--y",y+"px");
+  requestAnimationFrame(loop)
 }
-document.querySelectorAll(".filters button").forEach(b=>b.addEventListener("click",()=>{
-  document.querySelectorAll(".filters button").forEach(x=>x.setAttribute("aria-pressed",x===b?"true":"false"));
-  render(b.dataset.f);
-}));
-render("all");
+requestAnimationFrame(loop);
+
+/* the book */
+document.getElementById("toc").innerHTML=CASES.map((c,i)=>`<li><a href="#ch-${c.img}"><span>${roman[i]}. ${esc(c.name)}</span><b>${c.f}</b></a></li>`).join("");
+document.getElementById("book").innerHTML=CASES.map((c,i)=>{
+  const words=c.story.split(" ").map((w,k)=>`<span class="w" style="--i:${k}">${esc(w)}</span>`).join(" ");
+  return `<article class="chapter" id="ch-${c.img}">
+    <figure class="frame" style="margin:0"><img src="images/${c.img}.jpg" alt="${esc(c.name)}" loading="lazy"><figcaption>Chapter ${roman[i]} · ${c.f}</figcaption></figure>
+    <div class="page">
+      <p class="num">Chapter ${roman[i]} of VIII</p>
+      <h3>${esc(c.name)}</h3>
+      <p class="type">${esc(c.type)}</p>
+      <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">${esc(c.before)}<span class="strike"></span></span></p></div>
+      <div class="truth"><small>What only they can say</small><p>“${words}”</p></div>
+      <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">${esc(c.faq)}</p></div>
+    </div>
+  </article>`}).join("");
+
+/* reveals */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.28});
+document.querySelectorAll(".chapter,.rise").forEach(el=>io.observe(el));
+const lit=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("lit",e.isIntersecting)),{rootMargin:"-38% 0px -38% 0px"});
+document.querySelectorAll(".manifesto .rv").forEach(el=>lit.observe(el));
+
+/* wick + nav */
+const wick=document.getElementById("wick"),nav=document.getElementById("nav");
+function onScroll(){const h=document.documentElement;wick.style.setProperty("--p",h.scrollTop/(h.scrollHeight-h.clientHeight||1));nav.classList.toggle("solid",h.scrollTop>innerHeight*.6)}
+addEventListener("scroll",onScroll,{passive:true});onScroll();
 </script>
+</body>
+</html>
