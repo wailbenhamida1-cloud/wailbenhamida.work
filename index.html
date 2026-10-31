@@ -398,8 +398,8 @@ p{margin:0}
           <div class="done-flame" aria-hidden="true"></div>
           <p class="label">Checked in</p>
           <h3>Your lantern is lit, <span id="donename">friend</span>.</h3>
-          <p>I’ve received <b id="doneplace">your place</b>. A confirmation is on its way to your inbox, and within 48 hours you’ll get your two-page AI Story Snapshot.</p>
-          <p class="small">Something to add? Just reply to the confirmation email.</p>
+          <p>I’ve received <b id="doneplace">your place</b>. Within 48 hours your two-page AI Story Snapshot will arrive at <b id="doneemail">your inbox</b>, from hello@wailbenhamida.work.</p>
+          <p class="small">Something to add? Write to <a href="mailto:hello@wailbenhamida.work">hello@wailbenhamida.work</a>.</p>
         </div>
       </div>
     </div>
@@ -517,6 +517,7 @@ form.addEventListener("submit",async e=>{
     if(!r.ok||j.success==="false"||j.success===false)throw new Error(j.message||"send failed");
     document.getElementById("donename").textContent=data.name.split(" ")[0];
     document.getElementById("doneplace").textContent=data.Place;
+    document.getElementById("doneemail").textContent=data.email;
     form.hidden=true;document.getElementById("done").hidden=false;document.getElementById("card").scrollIntoView({behavior:"smooth",block:"center"});
   }catch(err){
     btn.disabled=false;btn.textContent="Light my story →";
