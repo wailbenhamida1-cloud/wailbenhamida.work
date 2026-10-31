@@ -517,7 +517,7 @@ form.addEventListener("submit",async e=>{
     if(!r.ok||j.success==="false"||j.success===false)throw new Error(j.message||"send failed");
     document.getElementById("donename").textContent=data.name.split(" ")[0];
     document.getElementById("doneplace").textContent=data.Place;
-    form.hidden=true;document.getElementById("done").hidden=false;
+    form.hidden=true;document.getElementById("done").hidden=false;document.getElementById("card").scrollIntoView({behavior:"smooth",block:"center"});
   }catch(err){
     btn.disabled=false;btn.textContent="Light my story →";
     note.innerHTML='Something blew the lantern out. Please email <a href="mailto:hello@wailbenhamida.work">hello@wailbenhamida.work</a>.';
