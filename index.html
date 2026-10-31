@@ -209,6 +209,7 @@ p{margin:0}
 .f input:focus,.f textarea:focus{outline:none;border-bottom-color:var(--ember);box-shadow:0 1px 0 var(--ember)}
 .f input::placeholder,.f textarea::placeholder{color:#a69a87}
 .f.heart>span{font-family:var(--display);font-style:italic;font-size:22px;letter-spacing:0;text-transform:none;color:var(--ember);line-height:1.25}
+.checkin .hint{font-size:14px;line-height:1.5;color:var(--paper-dim);border-left:2px solid var(--ember);padding-left:12px;margin:0}
 .f.bad input,.kinds.bad span{border-color:#b2412b}
 .send{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:6px}
 .send .btn{border:0;cursor:pointer;font:inherit;font-weight:600}
@@ -353,7 +354,7 @@ p{margin:0}
     <div class="wrap snap-grid">
       <div class="rise">
         <p class="label">Your first chapter is free</p>
-        <h2 class="section-title" id="snap-title">Check in. Two minutes.</h2>
+        <h2 class="section-title" id="snap-title">Check in. Five honest minutes.</h2>
         <p style="color:var(--dim);margin-top:20px;max-width:44ch">Fill in the card. Within 48 hours you get two pages: what AI says about your place today, the story I found, and three fixes you can make the same day.</p>
         <p style="color:var(--dim);margin-top:14px;max-width:44ch;font-size:15px">Prefer to talk first? Write to me directly or on any platform below.</p>
         <div class="where">
@@ -382,8 +383,14 @@ p{margin:0}
             <label class="f"><span>City &amp; country</span><input name="City" required autocomplete="address-level2"></label>
           </div>
           <label class="f"><span>Website, Google Maps, Booking or Instagram link</span><input name="Link" required inputmode="url" placeholder="https://"></label>
-          <label class="f heart"><span>What do guests love about you that isn’t written anywhere online?</span><textarea name="Hidden story" rows="3" placeholder="A ritual, a person, a detail only regulars notice…"></textarea></label>
-          <label class="f"><span>Two places nearby that guests compare you with <i>(optional)</i></span><input name="Compared with"></label>
+          <label class="f"><span>Other links <i>(optional: Instagram, Booking, TripAdvisor…)</i></span><input name="Other links"></label>
+          <label class="f"><span>In one line: what you offer, and to whom</span><input name="Offer" required placeholder="8 rooms in an old merchant house, for couples who want quiet near the medina"></label>
+          <p class="hint">The story lives in facts, not adjectives. “Calm” or “great service” could be anyone. Tell me what actually happens. Any language is fine.</p>
+          <label class="f heart"><span>How did it start?</span><textarea name="Origin" rows="3" required placeholder="Who opened it, when, and why. Two or three lines."></textarea></label>
+          <label class="f heart"><span>One real moment a guest still talks about</span><textarea name="Guest moment" rows="3" required placeholder="Who, what happened, what they said or wrote afterwards."></textarea></label>
+          <label class="f heart"><span>What do you do that no place nearby does?</span><textarea name="Only here" rows="3" required placeholder="A ritual, a recipe, a person, an object, a habit only regulars notice…"></textarea></label>
+          <label class="f"><span>When someone asks ChatGPT for a place like yours, what should it say? <i>(optional)</i></span><textarea name="Wanted AI answer" rows="2" placeholder="“The quiet riad where breakfast is served on the roof by the owner’s mother.”"></textarea></label>
+          <label class="f"><span>Two places nearby that guests compare you with <i>(optional, their names)</i></span><input name="Compared with"></label>
           <fieldset class="kinds" data-group="Role">
             <legend>You are</legend>
             <label><input type="radio" name="Role" value="Owner" required><span>Owner</span></label>
