@@ -186,11 +186,38 @@ p{margin:0}
 .snapshot{padding:22vh 0 18vh;position:relative;overflow:hidden}
 .snapshot::before{content:"";position:absolute;left:50%;top:0;translate:-50% -40%;width:120vmax;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(232,162,74,.12),transparent 55%);pointer-events:none}
 .snap-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,6vw,90px);position:relative}
-.qs{list-style:none;margin:0;padding:0;counter-reset:q}
-.qs li{counter-increment:q;display:grid;grid-template-columns:52px minmax(0,1fr);padding:20px 0;border-bottom:1px solid var(--faint);font-size:19px}
-.qs li::before{content:counter(q,decimal-leading-zero);font-family:var(--mono);font-size:13px;color:var(--dim);padding-top:5px}
-.qs li.heart{color:var(--flame);font-family:var(--display);font-style:italic;font-size:26px;line-height:1.25}
-.qs li.heart::before{color:var(--flame)}
+/* the check-in card */
+.card{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:clamp(22px,3.4vw,40px);
+  box-shadow:0 40px 90px -40px rgba(0,0,0,.9),0 0 0 1px #d8cdb9 inset;background-image:repeating-linear-gradient(transparent 0 31px,rgba(120,90,50,.06) 31px 32px)}
+.card::before{content:"";position:absolute;inset:10px;border:1px solid #d9ccb5;border-radius:3px;pointer-events:none}
+.checkin{display:grid;gap:20px;position:relative}
+.card-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim);border-bottom:1px dashed #cdbfa9;padding-bottom:14px}
+.card-top b{font-weight:500;color:var(--ember)}
+.kinds{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.kinds legend{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper-dim);margin-bottom:10px;padding:0}
+.kinds label{cursor:pointer}
+.kinds input{position:absolute;opacity:0;pointer-events:none}
+.kinds span{display:inline-block;border:1px solid #cdbfa9;border-radius:999px;padding:7px 14px;font-size:14px;transition:background .2s,color .2s,border-color .2s}
+.kinds input:checked+span{background:var(--paper-ink);color:var(--paper);border-color:var(--paper-ink)}
+.kinds input:focus-visible+span{outline:2px solid var(--ember);outline-offset:2px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.f{display:grid;gap:4px}
+.f>span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-dim)}
+.f>span i{text-transform:none;letter-spacing:0;font-style:normal;opacity:.75}
+.f input,.f textarea{font:inherit;font-size:17px;color:var(--paper-ink);background:transparent;border:0;border-bottom:1px solid #b9aa92;padding:8px 0;border-radius:0;width:100%;resize:vertical}
+.f input:focus,.f textarea:focus{outline:none;border-bottom-color:var(--ember);box-shadow:0 1px 0 var(--ember)}
+.f input::placeholder,.f textarea::placeholder{color:#a69a87}
+.f.heart>span{font-family:var(--display);font-style:italic;font-size:22px;letter-spacing:0;text-transform:none;color:var(--ember);line-height:1.25}
+.f.bad input,.kinds.bad span{border-color:#b2412b}
+.send{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:6px}
+.send .btn{border:0;cursor:pointer;font:inherit;font-weight:600}
+.send .btn[disabled]{opacity:.6;cursor:wait}
+.small{font-size:13px;color:var(--paper-dim)}
+.done{text-align:center;display:grid;gap:14px;justify-items:center;padding:30px 10px}
+.done h3{font-size:clamp(32px,3.6vw,46px)}
+.done p{max-width:40ch;color:var(--paper-dim)}
+.done-flame{width:16px;height:16px;border-radius:50%;background:#ffd28a;box-shadow:0 0 30px 12px rgba(232,162,74,.55),0 0 90px 40px rgba(232,162,74,.25);animation:flicker 2.6s infinite;margin-bottom:14px}
+@media (max-width:560px){.row2{grid-template-columns:1fr}}
 .where{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}
 .where a{border:1px solid #3a352e;border-radius:999px;padding:10px 18px;text-decoration:none;font-size:14px;transition:border-color .2s,color .2s}
 .where a.mail{border-color:var(--flame);color:var(--flame)}
@@ -325,8 +352,9 @@ p{margin:0}
     <div class="wrap snap-grid">
       <div class="rise">
         <p class="label">Your first chapter is free</p>
-        <h2 class="section-title" id="snap-title">Five questions. Two minutes.</h2>
-        <p style="color:var(--dim);margin-top:20px;max-width:44ch">Email your answers to hello@wailbenhamida.work, or send them on any platform below. Within 48 hours you get two pages: what AI says about you now, the story I found, and three fixes.</p>
+        <h2 class="section-title" id="snap-title">Check in. Two minutes.</h2>
+        <p style="color:var(--dim);margin-top:20px;max-width:44ch">Fill in the card. Within 48 hours you get two pages: what AI says about your place today, the story I found, and three fixes you can make the same day.</p>
+        <p style="color:var(--dim);margin-top:14px;max-width:44ch;font-size:15px">Prefer to talk first? Write to me directly or on any platform below.</p>
         <div class="where">
           <a class="mail" href="mailto:hello@wailbenhamida.work?subject=AI%20Story%20Snapshot">✉ hello@wailbenhamida.work</a>
           <a href="https://contra.com/wail_ben_hamida_sg3r4p6f" target="_blank" rel="noopener">Contra</a>
@@ -336,13 +364,43 @@ p{margin:0}
           <a href="https://www.linkedin.com/in/wailbenhamida/" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
-      <ol class="qs rise">
-        <li>Name of your place, city, and website or listing link</li>
-        <li>What kind of place is it? Hotel, guesthouse, rental, restaurant, café or other</li>
-        <li>Who is the guest you love serving most?</li>
-        <li class="heart">What do guests love about you that isn’t written anywhere online?</li>
-        <li>Name two places nearby that guests compare you with</li>
-      </ol>
+      <div class="card rise" id="card">
+        <form class="checkin" id="checkin" novalidate>
+          <div class="card-top"><span>Room 00 · Check-in card</span><span>No. <b id="cardno">0001</b></span></div>
+          <fieldset class="kinds">
+            <legend>Your place</legend>
+            <label><input type="radio" name="Type" value="Boutique hotel" required><span>Boutique hotel</span></label>
+            <label><input type="radio" name="Type" value="Guesthouse / B&amp;B"><span>Guesthouse / B&amp;B</span></label>
+            <label><input type="radio" name="Type" value="Holiday rental"><span>Rental</span></label>
+            <label><input type="radio" name="Type" value="Restaurant"><span>Restaurant</span></label>
+            <label><input type="radio" name="Type" value="Café / bakery"><span>Café / bakery</span></label>
+            <label><input type="radio" name="Type" value="Other"><span>Other</span></label>
+          </fieldset>
+          <div class="row2">
+            <label class="f"><span>Name of the place</span><input name="Place" required autocomplete="organization"></label>
+            <label class="f"><span>City &amp; country</span><input name="City" required autocomplete="address-level2"></label>
+          </div>
+          <label class="f"><span>Website, Google Maps, Booking or Instagram link</span><input name="Link" required inputmode="url" placeholder="https://"></label>
+          <label class="f heart"><span>What do guests love about you that isn’t written anywhere online?</span><textarea name="Hidden story" rows="3" placeholder="A ritual, a person, a detail only regulars notice…"></textarea></label>
+          <label class="f"><span>Two places nearby that guests compare you with <i>(optional)</i></span><input name="Compared with"></label>
+          <div class="row2">
+            <label class="f"><span>Your name</span><input name="name" required autocomplete="name"></label>
+            <label class="f"><span>Your email</span><input type="email" name="email" required autocomplete="email"></label>
+          </div>
+          <input type="text" name="_honey" class="sr" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="send">
+            <button type="submit" class="btn btn-flame" id="sendbtn">Light my story →</button>
+            <p class="small" id="formnote">Free. Two pages within 48 hours. No calls, no spam.</p>
+          </div>
+        </form>
+        <div class="done" id="done" hidden>
+          <div class="done-flame" aria-hidden="true"></div>
+          <p class="label">Checked in</p>
+          <h3>Your lantern is lit, <span id="donename">friend</span>.</h3>
+          <p>I’ve received <b id="doneplace">your place</b>. A confirmation is on its way to your inbox, and within 48 hours you’ll get your two-page AI Story Snapshot.</p>
+          <p class="small">Something to add? Just reply to the confirmation email.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -430,6 +488,40 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 document.querySelectorAll(".chapter,.rise").forEach(el=>io.observe(el));
 const lit=new IntersectionObserver(es=>es.forEach(e=>e.target.classList.toggle("lit",e.isIntersecting)),{rootMargin:"-38% 0px -38% 0px"});
 document.querySelectorAll(".manifesto .rv").forEach(el=>lit.observe(el));
+
+/* check-in card: sends to the inbox, client gets an instant confirmation */
+const form=document.getElementById("checkin"),btn=document.getElementById("sendbtn"),note=document.getElementById("formnote");
+document.getElementById("cardno").textContent=String(Math.floor(Date.now()/6e4)%9000+1000);
+form.addEventListener("submit",async e=>{
+  e.preventDefault();
+  let ok=true;
+  form.querySelectorAll("[required]").forEach(el=>{
+    const box=el.type==="radio"?form.querySelector(".kinds"):el.closest(".f");
+    const valid=el.type==="radio"?!!form.querySelector('input[name="Type"]:checked'):el.checkValidity()&&el.value.trim()!=="";
+    box.classList.toggle("bad",!valid);if(!valid)ok=false;
+  });
+  if(!ok){note.textContent="A few lines are still empty.";return}
+  const data=Object.fromEntries(new FormData(form));
+  if(data._honey)return;
+  delete data._honey;
+  Object.assign(data,{
+    _subject:`Snapshot request · ${data.Place} · ${data.City}`,
+    _template:"table",_captcha:"false",_replyto:data.email,
+    _autoresponse:`Hello ${data.name},\n\nThank you for checking in ${data.Place} with STAY → STORY.\n\nWithin 48 hours you will receive your free two-page AI Story Snapshot: what AI assistants say about your place today, the hidden story I found, and three fixes you can make the same day.\n\nIf there is anything you'd like me to know, a detail, a person, a ritual, just reply to this email.\n\nWail Ben Hamida\nSTAY → STORY · story & AI visibility\nhttps://wailbenhamida.work`
+  });
+  btn.disabled=true;btn.textContent="Lighting…";note.textContent="";
+  try{
+    const r=await fetch("https://formsubmit.co/ajax/hello@wailbenhamida.work",{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify(data)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok||j.success==="false"||j.success===false)throw new Error(j.message||"send failed");
+    document.getElementById("donename").textContent=data.name.split(" ")[0];
+    document.getElementById("doneplace").textContent=data.Place;
+    form.hidden=true;document.getElementById("done").hidden=false;
+  }catch(err){
+    btn.disabled=false;btn.textContent="Light my story →";
+    note.innerHTML='Something blew the lantern out. Please email <a href="mailto:hello@wailbenhamida.work">hello@wailbenhamida.work</a>.';
+  }
+});
 
 /* wick + nav */
 const wick=document.getElementById("wick"),nav=document.getElementById("nav");
