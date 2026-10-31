@@ -368,7 +368,7 @@ p{margin:0}
       <div class="card rise" id="card">
         <form class="checkin" id="checkin" novalidate>
           <div class="card-top"><span>Room 00 · Check-in card</span><span>No. <b id="cardno">0001</b></span></div>
-          <fieldset class="kinds">
+          <fieldset class="kinds" data-group="Type">
             <legend>Your place</legend>
             <label><input type="radio" name="Type" value="Boutique hotel" required><span>Boutique hotel</span></label>
             <label><input type="radio" name="Type" value="Guesthouse / B&amp;B"><span>Guesthouse / B&amp;B</span></label>
@@ -384,6 +384,14 @@ p{margin:0}
           <label class="f"><span>Website, Google Maps, Booking or Instagram link</span><input name="Link" required inputmode="url" placeholder="https://"></label>
           <label class="f heart"><span>What do guests love about you that isn’t written anywhere online?</span><textarea name="Hidden story" rows="3" placeholder="A ritual, a person, a detail only regulars notice…"></textarea></label>
           <label class="f"><span>Two places nearby that guests compare you with <i>(optional)</i></span><input name="Compared with"></label>
+          <fieldset class="kinds" data-group="Role">
+            <legend>You are</legend>
+            <label><input type="radio" name="Role" value="Owner" required><span>Owner</span></label>
+            <label><input type="radio" name="Role" value="Manager"><span>Manager</span></label>
+            <label><input type="radio" name="Role" value="Marketing"><span>Marketing</span></label>
+            <label><input type="radio" name="Role" value="Agency / consultant"><span>Agency</span></label>
+            <label><input type="radio" name="Role" value="Just exploring"><span>Just exploring</span></label>
+          </fieldset>
           <div class="row2">
             <label class="f"><span>Your name</span><input name="name" required autocomplete="name"></label>
             <label class="f"><span>Your email</span><input type="email" name="email" required autocomplete="email"></label>
@@ -497,8 +505,8 @@ form.addEventListener("submit",async e=>{
   e.preventDefault();
   let ok=true;
   form.querySelectorAll("[required]").forEach(el=>{
-    const box=el.type==="radio"?form.querySelector(".kinds"):el.closest(".f");
-    const valid=el.type==="radio"?!!form.querySelector('input[name="Type"]:checked'):el.checkValidity()&&el.value.trim()!=="";
+    const box=el.type==="radio"?el.closest(".kinds"):el.closest(".f");
+    const valid=el.type==="radio"?!!form.querySelector(`input[name="${el.name}"]:checked`):el.checkValidity()&&el.value.trim()!=="";
     box.classList.toggle("bad",!valid);if(!valid)ok=false;
   });
   if(!ok){note.textContent="A few lines are still empty.";return}
@@ -506,7 +514,7 @@ form.addEventListener("submit",async e=>{
   if(data._honey)return;
   delete data._honey;
   Object.assign(data,{
-    _subject:`Snapshot request · ${data.Place} · ${data.City}`,
+    _subject:`Snapshot request · ${data.Place} · ${data.City} · ${data.Role}`,
     _template:"table",_captcha:"false",_replyto:data.email,
     _autoresponse:`Hello ${data.name},\n\nThank you for checking in ${data.Place} with STAY → STORY.\n\nWithin 48 hours you will receive your free two-page AI Story Snapshot: what AI assistants say about your place today, the hidden story I found, and three fixes you can make the same day.\n\nIf there is anything you'd like me to know, a detail, a person, a ritual, just reply to this email.\n\nWail Ben Hamida\nSTAY → STORY · story & AI visibility\nhttps://wailbenhamida.work`
   });
