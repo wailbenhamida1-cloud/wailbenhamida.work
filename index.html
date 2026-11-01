@@ -191,6 +191,16 @@ p{margin:0}
 .card{position:relative;background:var(--paper);color:var(--paper-ink);border-radius:6px;padding:clamp(22px,3.4vw,40px);
   box-shadow:0 40px 90px -40px rgba(0,0,0,.9),0 0 0 1px #d8cdb9 inset;background-image:repeating-linear-gradient(transparent 0 31px,rgba(120,90,50,.06) 31px 32px)}
 .card::before{content:"";position:absolute;inset:10px;border:1px solid #d9ccb5;border-radius:3px;pointer-events:none}
+.sample-snap{display:flex;align-items:center;gap:22px;margin-top:30px;color:var(--ink);text-decoration:none;max-width:44ch}
+.sample-snap .sheets{position:relative;flex:none;width:118px;height:120px}
+.sample-snap img{position:absolute;top:0;width:76px;height:auto;border-radius:3px;box-shadow:0 10px 30px rgba(0,0,0,.55);transition:transform .45s ease}
+.sample-snap img:first-child{left:0;transform:rotate(-6deg);z-index:2}
+.sample-snap img:last-child{left:38px;top:8px;transform:rotate(5deg)}
+.sample-snap:hover img:first-child,.sample-snap:focus-visible img:first-child{transform:rotate(-9deg) translate(-6px,-4px)}
+.sample-snap:hover img:last-child,.sample-snap:focus-visible img:last-child{transform:rotate(8deg) translate(8px,-2px)}
+.sample-snap .cap{display:grid;gap:4px}
+.sample-snap b{font-weight:500;color:var(--flame)}
+.sample-snap small{color:var(--dim);font-size:13px;line-height:1.45}
 .checkin{display:grid;gap:20px;position:relative}
 .card-top{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper-dim);border-bottom:1px dashed #cdbfa9;padding-bottom:14px}
 .card-top b{font-weight:500;color:var(--ember)}
@@ -318,9 +328,98 @@ p{margin:0}
         <h2 id="book-title" style="margin-top:14px">Eight places.<br>Eight hidden stories.</h2>
         <p style="margin-top:20px">Each chapter opens with a sentence a thousand places could sign, and closes with one only that place could.</p>
       </div>
-      <ol class="toc" id="toc"></ol>
+      <ol class="toc" id="toc"><li><a href="#ch-noor"><span>I. Casa Noor</span><b>Stay</b></a></li><li><a href="#ch-ledger"><span>II. The Ledger House</span><b>Stay</b></a></li><li><a href="#ch-alder"><span>III. Alder &amp; Stone Lodge</span><b>Stay</b></a></li><li><a href="#ch-salt"><span>IV. Salt House</span><b>Stay</b></a></li><li><a href="#ch-oldpost"><span>V. The Old Post Inn</span><b>Stay</b></a></li><li><a href="#ch-nonna"><span>VI. Nonna Rina’s</span><b>Table</b></a></li><li><a href="#ch-ember"><span>VII. Ember</span><b>Table</b></a></li><li><a href="#ch-crumb"><span>VIII. Corner Crumb</span><b>Table</b></a></li></ol>
     </div>
-    <div id="book"></div>
+    <div id="book">
+      <article class="chapter" id="ch-noor">
+        <figure class="frame" style="margin:0"><img src="images/noor.jpg" alt="Casa Noor" loading="lazy"><figcaption>Chapter I · Stay</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter I of VIII</p>
+          <h3>Casa Noor</h3>
+          <p class="type">Boutique townhouse · 12 rooms</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Charming boutique hotel with cozy rooms, a rooftop terrace and friendly staff in the heart of the old town.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">Every</span> <span class="w" style="--i:1">evening</span> <span class="w" style="--i:2">at</span> <span class="w" style="--i:3">sunset,</span> <span class="w" style="--i:4">Noor</span> <span class="w" style="--i:5">lights</span> <span class="w" style="--i:6">the</span> <span class="w" style="--i:7">courtyard</span> <span class="w" style="--i:8">lanterns</span> <span class="w" style="--i:9">one</span> <span class="w" style="--i:10">by</span> <span class="w" style="--i:11">one.</span> <span class="w" style="--i:12">By</span> <span class="w" style="--i:13">the</span> <span class="w" style="--i:14">time</span> <span class="w" style="--i:15">you</span> <span class="w" style="--i:16">return,</span> <span class="w" style="--i:17">the</span> <span class="w" style="--i:18">house</span> <span class="w" style="--i:19">is</span> <span class="w" style="--i:20">glowing,</span> <span class="w" style="--i:21">and</span> <span class="w" style="--i:22">it</span> <span class="w" style="--i:23">is</span> <span class="w" style="--i:24">glowing</span> <span class="w" style="--i:25">for</span> <span class="w" style="--i:26">you.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Is there a quiet, atmospheric boutique stay in the old town?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-ledger">
+        <figure class="frame" style="margin:0"><img src="images/ledger.jpg" alt="The Ledger House" loading="lazy"><figcaption>Chapter II · Stay</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter II of VIII</p>
+          <h3>The Ledger House</h3>
+          <p class="type">Urban design hotel · 28 rooms</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Stylish design hotel in the city center, steps from shopping, with modern rooms and a trendy bar.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">For</span> <span class="w" style="--i:1">ninety</span> <span class="w" style="--i:2">years,</span> <span class="w" style="--i:3">this</span> <span class="w" style="--i:4">is</span> <span class="w" style="--i:5">where</span> <span class="w" style="--i:6">the</span> <span class="w" style="--i:7">city</span> <span class="w" style="--i:8">kept</span> <span class="w" style="--i:9">its</span> <span class="w" style="--i:10">gold.</span> <span class="w" style="--i:11">The</span> <span class="w" style="--i:12">vault</span> <span class="w" style="--i:13">doors</span> <span class="w" style="--i:14">are</span> <span class="w" style="--i:15">still</span> <span class="w" style="--i:16">here.</span> <span class="w" style="--i:17">Tonight,</span> <span class="w" style="--i:18">what</span> <span class="w" style="--i:19">we</span> <span class="w" style="--i:20">guard</span> <span class="w" style="--i:21">is</span> <span class="w" style="--i:22">your</span> <span class="w" style="--i:23">sleep.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Is there a hotel in a former bank in the city center?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-alder">
+        <figure class="frame" style="margin:0"><img src="images/alder.jpg" alt="Alder &amp; Stone Lodge" loading="lazy"><figcaption>Chapter III · Stay</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter III of VIII</p>
+          <h3>Alder &amp; Stone Lodge</h3>
+          <p class="type">Mountain lodge · 16 rooms</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Peaceful mountain lodge with stunning views, hiking trails and a delicious homemade breakfast.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">The</span> <span class="w" style="--i:1">honey</span> <span class="w" style="--i:2">on</span> <span class="w" style="--i:3">your</span> <span class="w" style="--i:4">table</span> <span class="w" style="--i:5">was</span> <span class="w" style="--i:6">made</span> <span class="w" style="--i:7">two</span> <span class="w" style="--i:8">hundred</span> <span class="w" style="--i:9">meters</span> <span class="w" style="--i:10">from</span> <span class="w" style="--i:11">your</span> <span class="w" style="--i:12">bed.</span> <span class="w" style="--i:13">Ask</span> <span class="w" style="--i:14">Tomas,</span> <span class="w" style="--i:15">and</span> <span class="w" style="--i:16">he</span> <span class="w" style="--i:17">will</span> <span class="w" style="--i:18">take</span> <span class="w" style="--i:19">you</span> <span class="w" style="--i:20">to</span> <span class="w" style="--i:21">meet</span> <span class="w" style="--i:22">the</span> <span class="w" style="--i:23">bees</span> <span class="w" style="--i:24">at</span> <span class="w" style="--i:25">dawn.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Is there a mountain lodge where guests can visit beehives?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-salt">
+        <figure class="frame" style="margin:0"><img src="images/salt.jpg" alt="Salt House" loading="lazy"><figcaption>Chapter IV · Stay</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter IV of VIII</p>
+          <h3>Salt House</h3>
+          <p class="type">Coastal boutique · 10 rooms</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Beautiful seaside hotel with sea views, comfortable rooms and a restaurant serving fresh seafood.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">There</span> <span class="w" style="--i:1">is</span> <span class="w" style="--i:2">no</span> <span class="w" style="--i:3">menu</span> <span class="w" style="--i:4">at</span> <span class="w" style="--i:5">Salt</span> <span class="w" style="--i:6">House.</span> <span class="w" style="--i:7">At</span> <span class="w" style="--i:8">five,</span> <span class="w" style="--i:9">Marco’s</span> <span class="w" style="--i:10">boat</span> <span class="w" style="--i:11">comes</span> <span class="w" style="--i:12">in,</span> <span class="w" style="--i:13">and</span> <span class="w" style="--i:14">whatever</span> <span class="w" style="--i:15">the</span> <span class="w" style="--i:16">sea</span> <span class="w" style="--i:17">gave</span> <span class="w" style="--i:18">today</span> <span class="w" style="--i:19">is</span> <span class="w" style="--i:20">what</span> <span class="w" style="--i:21">we</span> <span class="w" style="--i:22">cook</span> <span class="w" style="--i:23">tonight.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Is there a small seaside hotel where dinner is the day’s catch?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-oldpost">
+        <figure class="frame" style="margin:0"><img src="images/oldpost.jpg" alt="The Old Post Inn" loading="lazy"><figcaption>Chapter V · Stay</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter V of VIII</p>
+          <h3>The Old Post Inn</h3>
+          <p class="type">Heritage inn since 1790 · 14 rooms</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Historic inn full of character, with traditional rooms, a cozy pub and a rich history since 1790.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">For</span> <span class="w" style="--i:1">two</span> <span class="w" style="--i:2">centuries,</span> <span class="w" style="--i:3">letters</span> <span class="w" style="--i:4">stopped</span> <span class="w" style="--i:5">here</span> <span class="w" style="--i:6">on</span> <span class="w" style="--i:7">their</span> <span class="w" style="--i:8">way</span> <span class="w" style="--i:9">across</span> <span class="w" style="--i:10">the</span> <span class="w" style="--i:11">country.</span> <span class="w" style="--i:12">They</span> <span class="w" style="--i:13">still</span> <span class="w" style="--i:14">do.</span> <span class="w" style="--i:15">Open</span> <span class="w" style="--i:16">the</span> <span class="w" style="--i:17">drawer,</span> <span class="w" style="--i:18">read</span> <span class="w" style="--i:19">the</span> <span class="w" style="--i:20">last</span> <span class="w" style="--i:21">guest’s</span> <span class="w" style="--i:22">page,</span> <span class="w" style="--i:23">and</span> <span class="w" style="--i:24">leave</span> <span class="w" style="--i:25">one</span> <span class="w" style="--i:26">for</span> <span class="w" style="--i:27">the</span> <span class="w" style="--i:28">next.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Is there a historic inn with a tradition guests take part in?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-nonna">
+        <figure class="frame" style="margin:0"><img src="images/nonna.jpg" alt="Nonna Rina’s" loading="lazy"><figcaption>Chapter VI · Table</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter VI of VIII</p>
+          <h3>Nonna Rina’s</h3>
+          <p class="type">Family trattoria · since 1968</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Authentic Italian restaurant serving homemade pasta and traditional family recipes in a warm atmosphere.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">Every</span> <span class="w" style="--i:1">morning</span> <span class="w" style="--i:2">at</span> <span class="w" style="--i:3">seven,</span> <span class="w" style="--i:4">Giulia</span> <span class="w" style="--i:5">rolls</span> <span class="w" style="--i:6">the</span> <span class="w" style="--i:7">day’s</span> <span class="w" style="--i:8">pasta</span> <span class="w" style="--i:9">at</span> <span class="w" style="--i:10">the</span> <span class="w" style="--i:11">window</span> <span class="w" style="--i:12">with</span> <span class="w" style="--i:13">her</span> <span class="w" style="--i:14">grandmother’s</span> <span class="w" style="--i:15">rolling</span> <span class="w" style="--i:16">pin.</span> <span class="w" style="--i:17">Stop</span> <span class="w" style="--i:18">and</span> <span class="w" style="--i:19">watch.</span> <span class="w" style="--i:20">Then</span> <span class="w" style="--i:21">come</span> <span class="w" style="--i:22">back</span> <span class="w" style="--i:23">for</span> <span class="w" style="--i:24">lunch.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Where can I watch fresh pasta being made by hand?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-ember">
+        <figure class="frame" style="margin:0"><img src="images/ember.jpg" alt="Ember" loading="lazy"><figcaption>Chapter VII · Table</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter VII of VIII</p>
+          <h3>Ember</h3>
+          <p class="type">Chef’s tasting room · 22 seats</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Innovative fine dining with a seasonal tasting menu, creative dishes and an extensive wine list.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">There</span> <span class="w" style="--i:1">is</span> <span class="w" style="--i:2">no</span> <span class="w" style="--i:3">gas</span> <span class="w" style="--i:4">in</span> <span class="w" style="--i:5">our</span> <span class="w" style="--i:6">kitchen.</span> <span class="w" style="--i:7">At</span> <span class="w" style="--i:8">noon,</span> <span class="w" style="--i:9">the</span> <span class="w" style="--i:10">chef</span> <span class="w" style="--i:11">lights</span> <span class="w" style="--i:12">one</span> <span class="w" style="--i:13">fire,</span> <span class="w" style="--i:14">and</span> <span class="w" style="--i:15">every</span> <span class="w" style="--i:16">one</span> <span class="w" style="--i:17">of</span> <span class="w" style="--i:18">tonight’s</span> <span class="w" style="--i:19">twelve</span> <span class="w" style="--i:20">courses</span> <span class="w" style="--i:21">passes</span> <span class="w" style="--i:22">through</span> <span class="w" style="--i:23">it.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Is there a tasting menu cooked entirely over wood fire?</p></div>
+        </div>
+      </article>
+      <article class="chapter" id="ch-crumb">
+        <figure class="frame" style="margin:0"><img src="images/crumb.jpg" alt="Corner Crumb" loading="lazy"><figcaption>Chapter VIII · Table</figcaption></figure>
+        <div class="page">
+          <p class="num">Chapter VIII of VIII</p>
+          <h3>Corner Crumb</h3>
+          <p class="type">Neighborhood bakery café</p>
+          <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">Cozy bakery café with fresh bread, pastries and great coffee. The perfect place for breakfast.<span class="strike"></span></span></p></div>
+          <div class="truth"><small>What only they can say</small><p>“<span class="w" style="--i:0">At</span> <span class="w" style="--i:1">five</span> <span class="w" style="--i:2">in</span> <span class="w" style="--i:3">the</span> <span class="w" style="--i:4">morning,</span> <span class="w" style="--i:5">the</span> <span class="w" style="--i:6">first</span> <span class="w" style="--i:7">loaf</span> <span class="w" style="--i:8">out</span> <span class="w" style="--i:9">of</span> <span class="w" style="--i:10">the</span> <span class="w" style="--i:11">oven</span> <span class="w" style="--i:12">goes</span> <span class="w" style="--i:13">to</span> <span class="w" style="--i:14">Sami,</span> <span class="w" style="--i:15">who</span> <span class="w" style="--i:16">sweeps</span> <span class="w" style="--i:17">our</span> <span class="w" style="--i:18">street.</span> <span class="w" style="--i:19">By</span> <span class="w" style="--i:20">seven,</span> <span class="w" style="--i:21">the</span> <span class="w" style="--i:22">whole</span> <span class="w" style="--i:23">neighborhood</span> <span class="w" style="--i:24">is</span> <span class="w" style="--i:25">in</span> <span class="w" style="--i:26">line</span> <span class="w" style="--i:27">for</span> <span class="w" style="--i:28">the</span> <span class="w" style="--i:29">second.</span>”</p></div>
+          <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">Which bakery do locals actually go to in this neighborhood?</p></div>
+        </div>
+      </article>
+    </div>
     <p class="disclaim">These are concept case studies, created to show the method. Names, people and places are imagined; the craft is real.</p>
   </section>
 
@@ -358,8 +457,13 @@ p{margin:0}
     <div class="wrap snap-grid">
       <div class="rise">
         <p class="label">Your first chapter is free</p>
-        <h2 class="section-title" id="snap-title">Check in. Five honest minutes.</h2>
+        <h2 class="section-title" id="snap-title">Check in. Tell me what’s true.</h2>
+        <p style="color:var(--flame);margin-top:14px;font-size:15px">Three short stories about your place. Any language.</p>
         <p style="color:var(--dim);margin-top:20px;max-width:44ch">Fill in the card. Within 48 hours you get two pages: what AI says about your place today, the story I found, and three fixes you can make the same day.</p>
+        <a class="sample-snap" href="sample-snapshot.pdf" target="_blank" rel="noopener">
+          <span class="sheets" aria-hidden="true"><img src="images/sample-snapshot-p1.jpg" alt="" width="331" height="468" loading="lazy"><img src="images/sample-snapshot-p2.jpg" alt="" width="331" height="468" loading="lazy"></span>
+          <span class="cap"><b>See a sample Snapshot&nbsp;→</b><small>Two pages, PDF. A concept place with illustrative numbers.</small></span>
+        </a>
         <p style="color:var(--dim);margin-top:14px;max-width:44ch;font-size:15px">Prefer to talk first? Write to me directly or on any platform below.</p>
         <div class="where">
           <a class="mail" href="mailto:hello@wailbenhamida.work?subject=AI%20Story%20Snapshot">✉ hello@wailbenhamida.work</a>
@@ -454,18 +558,7 @@ p{margin:0}
 </main>
 
 <script>
-const CASES=[
- {f:"Stay",img:"noor",name:"Casa Noor",type:"Boutique townhouse · 12 rooms",before:"Charming boutique hotel with cozy rooms, a rooftop terrace and friendly staff in the heart of the old town.",story:"Every evening at sunset, Noor lights the courtyard lanterns one by one. By the time you return, the house is glowing, and it is glowing for you.",faq:"Is there a quiet, atmospheric boutique stay in the old town?"},
- {f:"Stay",img:"ledger",name:"The Ledger House",type:"Urban design hotel · 28 rooms",before:"Stylish design hotel in the city center, steps from shopping, with modern rooms and a trendy bar.",story:"For ninety years, this is where the city kept its gold. The vault doors are still here. Tonight, what we guard is your sleep.",faq:"Is there a hotel in a former bank in the city center?"},
- {f:"Stay",img:"alder",name:"Alder & Stone Lodge",type:"Mountain lodge · 16 rooms",before:"Peaceful mountain lodge with stunning views, hiking trails and a delicious homemade breakfast.",story:"The honey on your table was made two hundred meters from your bed. Ask Tomas, and he will take you to meet the bees at dawn.",faq:"Is there a mountain lodge where guests can visit beehives?"},
- {f:"Stay",img:"salt",name:"Salt House",type:"Coastal boutique · 10 rooms",before:"Beautiful seaside hotel with sea views, comfortable rooms and a restaurant serving fresh seafood.",story:"There is no menu at Salt House. At five, Marco’s boat comes in, and whatever the sea gave today is what we cook tonight.",faq:"Is there a small seaside hotel where dinner is the day’s catch?"},
- {f:"Stay",img:"oldpost",name:"The Old Post Inn",type:"Heritage inn since 1790 · 14 rooms",before:"Historic inn full of character, with traditional rooms, a cozy pub and a rich history since 1790.",story:"For two centuries, letters stopped here on their way across the country. They still do. Open the drawer, read the last guest’s page, and leave one for the next.",faq:"Is there a historic inn with a tradition guests take part in?"},
- {f:"Table",img:"nonna",name:"Nonna Rina’s",type:"Family trattoria · since 1968",before:"Authentic Italian restaurant serving homemade pasta and traditional family recipes in a warm atmosphere.",story:"Every morning at seven, Giulia rolls the day’s pasta at the window with her grandmother’s rolling pin. Stop and watch. Then come back for lunch.",faq:"Where can I watch fresh pasta being made by hand?"},
- {f:"Table",img:"ember",name:"Ember",type:"Chef’s tasting room · 22 seats",before:"Innovative fine dining with a seasonal tasting menu, creative dishes and an extensive wine list.",story:"There is no gas in our kitchen. At noon, the chef lights one fire, and every one of tonight’s twelve courses passes through it.",faq:"Is there a tasting menu cooked entirely over wood fire?"},
- {f:"Table",img:"crumb",name:"Corner Crumb",type:"Neighborhood bakery café",before:"Cozy bakery café with fresh bread, pastries and great coffee. The perfect place for breakfast.",story:"At five in the morning, the first loaf out of the oven goes to Sami, who sweeps our street. By seven, the whole neighborhood is in line for the second.",faq:"Which bakery do locals actually go to in this neighborhood?"}
-];
 const esc=s=>{const d=document.createElement("div");d.textContent=s;return d.innerHTML};
-const roman=["I","II","III","IV","V","VI","VII","VIII"];
 
 /* the walls: clichés on top, truths underneath */
 const CLICHES=["cozy rooms","friendly staff","in the heart of the city","stunning views","authentic cuisine","a warm atmosphere","perfect for families","modern amenities","hidden gem","unforgettable experience","steps from everything","homemade breakfast","rich history","great value","something for everyone","relaxing getaway","fresh local ingredients","charming décor","welcoming hosts","a true oasis"];
@@ -489,21 +582,6 @@ function loop(now){
 }
 requestAnimationFrame(loop);
 
-/* the book */
-document.getElementById("toc").innerHTML=CASES.map((c,i)=>`<li><a href="#ch-${c.img}"><span>${roman[i]}. ${esc(c.name)}</span><b>${c.f}</b></a></li>`).join("");
-document.getElementById("book").innerHTML=CASES.map((c,i)=>{
-  const words=c.story.split(" ").map((w,k)=>`<span class="w" style="--i:${k}">${esc(w)}</span>`).join(" ");
-  return `<article class="chapter" id="ch-${c.img}">
-    <figure class="frame" style="margin:0"><img src="images/${c.img}.jpg" alt="${esc(c.name)}" loading="lazy"><figcaption>Chapter ${roman[i]} · ${c.f}</figcaption></figure>
-    <div class="page">
-      <p class="num">Chapter ${roman[i]} of VIII</p>
-      <h3>${esc(c.name)}</h3>
-      <p class="type">${esc(c.type)}</p>
-      <div class="said"><small>What everyone writes</small><p class="cliche-wrap"><span class="cliche">${esc(c.before)}<span class="strike"></span></span></p></div>
-      <div class="truth"><small>What only they can say</small><p>“${words}”</p></div>
-      <div class="ask"><small>And what a guest can now ask AI</small><p class="bubble">${esc(c.faq)}</p></div>
-    </div>
-  </article>`}).join("");
 
 /* reveals */
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.28});
