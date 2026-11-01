@@ -210,7 +210,11 @@ p{margin:0}
 .f input::placeholder,.f textarea::placeholder{color:#a69a87}
 .f.heart>span{font-family:var(--display);font-style:italic;font-size:22px;letter-spacing:0;text-transform:none;color:var(--ember);line-height:1.25}
 .checkin .facts{font-size:14px;line-height:1.5;color:var(--paper-dim);border-left:2px solid var(--ember);padding-left:12px;margin:0}
-.f.bad input,.kinds.bad span{border-color:#b2412b}
+.f.bad input,.f.bad textarea,.kinds.bad span{border-color:#b2412b}
+.checkin [hidden]{display:none}
+.kinds .adapt{flex-basis:100%;margin:4px 0 0;font-size:13px;color:var(--paper-dim)}
+.checkin .swap{animation:cardswap .5s ease}
+@keyframes cardswap{from{opacity:.15;transform:translateY(3px)}}
 .send{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding-top:6px}
 .send .btn{border:0;cursor:pointer;font:inherit;font-weight:600}
 .send .btn[disabled]{opacity:.6;cursor:wait}
@@ -377,20 +381,22 @@ p{margin:0}
             <label><input type="radio" name="Type" value="Restaurant"><span>Restaurant</span></label>
             <label><input type="radio" name="Type" value="Café / bakery"><span>Café / bakery</span></label>
             <label><input type="radio" name="Type" value="Other"><span>Other</span></label>
+            <p class="adapt" id="adapt">Pick one. The questions below adapt to you.</p>
           </fieldset>
+          <label class="f" id="kindf" hidden><span>What kind of business?</span><input name="Kind" list="kindlist" placeholder="Clothing shop, hair salon, pharmacy, online brand…"><datalist id="kindlist"><option value="Clothing shop"><option value="Hair or beauty salon"><option value="Pharmacy"><option value="Grocery / food shop"><option value="Craft or gift shop"><option value="Spa / wellness"><option value="Tour or activity"><option value="Online brand"></datalist></label>
           <div class="row2">
             <label class="f"><span>Name of the place</span><input name="Place" required autocomplete="organization"></label>
             <label class="f"><span>City &amp; country</span><input name="City" required autocomplete="address-level2"></label>
           </div>
-          <label class="f"><span>Website, Google Maps, Booking or Instagram link</span><input name="Link" required inputmode="url" placeholder="https://"></label>
-          <label class="f"><span>Other links <i>(optional: Instagram, Booking, TripAdvisor…)</i></span><input name="Other links"></label>
-          <label class="f"><span>In one line: what you offer, and to whom</span><input name="Offer" required placeholder="8 rooms in an old merchant house, for couples who want quiet near the medina"></label>
+          <label class="f"><span data-c="link">Website, Google Maps, Booking or Instagram link</span><input name="Link" required inputmode="url" placeholder="https://"></label>
+          <label class="f"><span data-c="more">Other links <i>(optional: Instagram, Booking, TripAdvisor…)</i></span><input name="Other links"></label>
+          <label class="f"><span>In one line: what you offer, and to whom</span><input name="Offer" required data-p="offer" placeholder="8 rooms in an old merchant house, for couples who want quiet near the medina"></label>
           <p class="facts">The story lives in facts, not adjectives. “Calm” or “great service” could be anyone. Tell me what actually happens. Any language is fine.</p>
-          <label class="f heart"><span>How did it start?</span><textarea name="Origin" rows="3" required placeholder="Who opened it, when, and why. Two or three lines."></textarea></label>
-          <label class="f heart"><span>One real moment a guest still talks about</span><textarea name="Guest moment" rows="3" required placeholder="Who, what happened, what they said or wrote afterwards."></textarea></label>
-          <label class="f heart"><span>What do you do that no place nearby does?</span><textarea name="Only here" rows="3" required placeholder="A ritual, a recipe, a person, an object, a habit only regulars notice…"></textarea></label>
-          <label class="f"><span>When someone asks ChatGPT for a place like yours, what should it say? <i>(optional)</i></span><textarea name="Wanted AI answer" rows="2" placeholder="“The quiet riad where breakfast is served on the roof by the owner’s mother.”"></textarea></label>
-          <label class="f"><span>Two places nearby that guests compare you with <i>(optional, their names)</i></span><input name="Compared with"></label>
+          <label class="f heart"><span data-c="origin">How did it start?</span><textarea name="Origin" rows="3" required data-p="origin" placeholder="Who opened it, when, and why. Two or three lines."></textarea></label>
+          <label class="f heart"><span data-c="moment">One real moment a guest still talks about</span><textarea name="Guest moment" rows="3" required data-p="moment" placeholder="Who, what happened, what they said or wrote afterwards."></textarea></label>
+          <label class="f heart"><span data-c="only">What do you do that no place nearby does?</span><textarea name="Only here" rows="3" required data-p="only" placeholder="A ritual, a recipe, a person, an object, a habit only regulars notice…"></textarea></label>
+          <label class="f"><span>When someone asks ChatGPT for a place like yours, what should it say? <i>(optional)</i></span><textarea name="Wanted AI answer" rows="2" data-p="ai" placeholder="“The quiet riad where breakfast is served on the roof by the owner’s mother.”"></textarea></label>
+          <label class="f"><span data-c="compare">Two places nearby that guests compare you with <i>(optional, their names)</i></span><input name="Compared with"></label>
           <fieldset class="kinds" data-group="Role">
             <legend>You are</legend>
             <label><input type="radio" name="Role" value="Owner" required><span>Owner</span></label>
@@ -508,6 +514,70 @@ document.querySelectorAll(".manifesto .rv").forEach(el=>lit.observe(el));
 /* check-in card: sends to the inbox, client gets an instant confirmation */
 const form=document.getElementById("checkin"),btn=document.getElementById("sendbtn"),note=document.getElementById("formnote");
 document.getElementById("cardno").textContent=String(Math.floor(Date.now()/6e4)%9000+1000);
+
+/* the card adapts its questions to the kind of place */
+const opt=t=>` <i>(optional${t?": "+t:""})</i>`;
+const COPY={
+  "Boutique hotel":{tip:"Questions set for a hotel.",
+    link:"Website, Google Maps or Booking link",more:"Other links"+opt("Instagram, TripAdvisor, Airbnb…"),
+    offer:"12 rooms in an old merchant house, for couples who want quiet near the medina",
+    origin:"How did the hotel begin?",originP:"Who opened it, when, and why. What was the building before?",
+    moment:"A moment a guest still talks about after leaving",momentP:"Who, what happened, what they wrote in their review or told you at check-out.",
+    only:"What happens here that no hotel nearby does?",onlyP:"An evening ritual, a person every guest knows, a room with its own story…",
+    ai:"“The quiet riad where breakfast is served on the roof by the owner’s mother.”",
+    compare:"Two hotels nearby that guests compare you with"+opt("their names")},
+  "Guesthouse / B&B":{tip:"Questions set for a guesthouse.",
+    link:"Website, Google Maps, Booking or Airbnb link",more:"Other links"+opt("Instagram, TripAdvisor…"),
+    offer:"5 rooms in our family home, breakfast cooked by me, for travelers who want a local family",
+    origin:"How did you start hosting?",originP:"Whose house it was, when you opened the door to guests, and why.",
+    moment:"A guest who came back, and why",momentP:"Who they are, what made them return, what they said.",
+    only:"What do guests get here that no hotel can give them?",onlyP:"A family recipe, a walk you take them on, a story the house keeps…",
+    ai:"“A family guesthouse where the owner bakes bread every morning and walks guests to the old souk.”",
+    compare:"Two guesthouses or hotels nearby"+opt("their names")},
+  "Holiday rental":{tip:"Questions set for a rental.",
+    link:"Airbnb, Booking or website link",more:"Other links"+opt("Instagram, Google Maps…"),
+    offer:"A two-bedroom flat with a sea view, for families who stay a week",
+    origin:"Why did you start renting it?",originP:"Whose home it was, since when, and what you want guests to feel.",
+    moment:"What a guest wrote in the guestbook or a review",momentP:"Quote it if you can, and tell me what had happened.",
+    only:"What do you leave or do for every guest?",onlyP:"A welcome basket, a hand-drawn map, a neighbor who brings…",
+    ai:"“A quiet flat above the harbor, with the owner’s hand-drawn map of the best fish restaurants.”",
+    compare:"Two rentals nearby that guests compare you with"+opt("their names or links")},
+  "Restaurant":{tip:"Questions set for a restaurant.",
+    link:"Google Maps, website or TripAdvisor link",more:"Other links"+opt("Instagram, TheFork, delivery apps…"),
+    offer:"A family kitchen serving one couscous recipe since 1987, for the lunch crowd from the market",
+    origin:"How did the restaurant begin?",originP:"Who cooked first, when, and whose recipes they were.",
+    moment:"A customer who keeps coming back, and what they always order",momentP:"Who they are, how long they’ve come, something they once told you.",
+    only:"Which dish or habit exists only here, and why?",onlyP:"The dish, where the recipe comes from, how and by whom it’s made.",
+    ai:"“The family place by the market where the couscous is still rolled by hand every Friday.”",
+    compare:"Two restaurants nearby that people compare you with"+opt("their names")},
+  "Café / bakery":{tip:"Questions set for a café or bakery.",
+    link:"Google Maps, Instagram or website link",more:"Other links"+opt("TripAdvisor, delivery apps…"),
+    offer:"A neighborhood bakery that opens at 5 a.m., for workers and early walkers",
+    origin:"How did the café or bakery begin?",originP:"Who opened it, when, and why on this street.",
+    moment:"Your first customer every morning, or a regular you’ll never forget",momentP:"Who they are, what they order, what happened between you.",
+    only:"What do people come here for that they can’t get next door?",onlyP:"A loaf, a cup, a recipe, an hour of the day, the person behind the counter…",
+    ai:"“The corner bakery where the first loaf of the day goes free to the street sweeper.”",
+    compare:"Two cafés or bakeries nearby"+opt("their names")},
+  "Other":{tip:"Tell me what you do, and the questions follow.",
+    link:"Google Maps, Instagram, Facebook or website link",more:"Other links"+opt(""),
+    offer:"A clothing shop for young men, every piece chosen by the owner in Istanbul",
+    origin:"How did your business begin?",originP:"Who started it, when, and why this business.",
+    moment:"A moment a customer still talks about",momentP:"Who, what happened, what they said or wrote afterwards.",
+    only:"What do you do that no business nearby does?",onlyP:"A service, a habit, a person, the way you choose what you sell…",
+    ai:"“The shop in town where the owner remembers every customer’s size.”",
+    compare:"Two businesses nearby that customers compare you with"+opt("their names")}
+};
+const kindf=document.getElementById("kindf"),kind=kindf.querySelector("input");
+function adapt(type){
+  const c=COPY[type];if(!c)return;
+  const set=(el,fn)=>{if(!el)return;fn(el);el.classList.remove("swap");void el.offsetWidth;el.classList.add("swap")};
+  ["link","more","origin","moment","only","compare"].forEach(k=>set(form.querySelector(`[data-c="${k}"]`),el=>el.innerHTML=c[k]));
+  [["offer","offer"],["origin","originP"],["moment","momentP"],["only","onlyP"],["ai","ai"]].forEach(([k,v])=>set(form.querySelector(`[data-p="${k}"]`),el=>el.placeholder=c[v]));
+  set(document.getElementById("adapt"),el=>el.textContent=c.tip);
+  const other=type==="Other";kindf.hidden=!other;kind.required=other;if(!other)kind.value="";
+  if(other)kind.focus({preventScroll:true});
+}
+form.querySelectorAll('input[name="Type"]').forEach(r=>r.addEventListener("change",()=>adapt(r.value)));
 form.addEventListener("submit",async e=>{
   e.preventDefault();
   let ok=true;
@@ -520,8 +590,9 @@ form.addEventListener("submit",async e=>{
   const data=Object.fromEntries(new FormData(form));
   if(data._honey)return;
   delete data._honey;
+  if(!data.Kind)delete data.Kind;
   Object.assign(data,{
-    _subject:`Snapshot request · ${data.Place} · ${data.City} · ${data.Role}`,
+    _subject:`Snapshot request · ${data.Place} · ${data.Kind||data.Type} · ${data.City} · ${data.Role}`,
     _template:"table",_captcha:"false",_replyto:data.email,
     _autoresponse:`Hello ${data.name},\n\nThank you for checking in ${data.Place} with STAY → STORY.\n\nWithin 48 hours you will receive your free two-page AI Story Snapshot: what AI assistants say about your place today, the hidden story I found, and three fixes you can make the same day.\n\nIf there is anything you'd like me to know, a detail, a person, a ritual, just reply to this email.\n\nWail Ben Hamida\nSTAY → STORY · story & AI visibility\nhttps://wailbenhamida.work`
   });
