@@ -12,6 +12,7 @@
 <meta property="og:url" content="https://wailbenhamida.work/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0b0a">
+<script>document.documentElement.classList.add("js");setTimeout(()=>document.documentElement.classList.add("split-ok"),2500)</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23e8a24a%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,7 +115,7 @@ p{margin:0}
 .chapter:nth-child(even) .frame{order:2}
 .frame{position:relative;overflow:hidden;border-radius:4px;aspect-ratio:4/5;background:#1a1714}
 .frame img{width:100%;height:100%;object-fit:cover;display:block;scale:1.18;filter:brightness(.35) saturate(.6) sepia(.25);transition:scale 2.4s cubic-bezier(.2,.7,.2,1),filter 1.8s ease}
-.chapter.in .frame img{scale:1.02;filter:brightness(.95) saturate(1) sepia(0)}
+.chapter.in .frame img{scale:1.1;filter:brightness(.95) saturate(1) sepia(0)}
 .frame figcaption{position:absolute;left:18px;bottom:16px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75)}
 .frame::after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px rgba(0,0,0,.55);pointer-events:none}
 .page{display:grid;gap:22px}
@@ -276,6 +277,18 @@ p{margin:0}
   .cliche .strike{transform:scaleX(1)}
   html{scroll-behavior:auto}
 }
+
+/* polish */
+::selection{background:var(--flame);color:#17110a}
+html{scrollbar-color:#3a352e var(--night)}
+body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+p{text-wrap:pretty}
+.js:not(.split-ok) .room-copy h1{visibility:hidden}
+/* Lenis smooth scroll */
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
+.lenis.lenis-stopped{overflow:clip}
 </style>
 </head>
 <body>
@@ -623,6 +636,10 @@ p{margin:0}
   </section>
 </main>
 
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
 <script>
 const esc=s=>{const d=document.createElement("div");d.textContent=s;return d.innerHTML};
 
@@ -759,6 +776,56 @@ form.addEventListener("submit",async e=>{
 const wick=document.getElementById("wick"),nav=document.getElementById("nav");
 function onScroll(){const h=document.documentElement;wick.style.setProperty("--p",h.scrollTop/(h.scrollHeight-h.clientHeight||1));nav.classList.toggle("solid",h.scrollTop>innerHeight*.6)}
 addEventListener("scroll",onScroll,{passive:true});onScroll();
+</script>
+<script>
+/* motion layer: GSAP (free, gsap.com/licensing) + Lenis (MIT). Skipped entirely for reduced motion or if a CDN fails. */
+(()=>{
+  const de=document.documentElement,done=()=>de.classList.add("split-ok");
+  if(reduce||!window.gsap||!window.ScrollTrigger||!window.SplitText){done();return}
+  gsap.registerPlugin(ScrollTrigger,SplitText);
+
+  /* silk scroll */
+  if(window.Lenis){
+    const lenis=new Lenis({anchors:{offset:-68},prevent:n=>/^(TEXTAREA|SELECT)$/.test(n.nodeName)});
+    lenis.on("scroll",ScrollTrigger.update);
+    gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
+  }
+
+  const room4=s=>{(s.masks||[]).forEach(m=>{m.style.paddingBottom=".16em";m.style.marginBottom="-.16em"});return s};
+  document.fonts.ready.then(()=>{
+    /* headline rises line by line from behind a mask */
+    const h1=document.querySelector(".room-copy h1");
+    const hs=room4(SplitText.create(h1,{type:"lines",mask:"lines"}));
+    gsap.set(hs.lines,{yPercent:130});done();
+    gsap.timeline({defaults:{ease:"expo.out"}})
+      .to(hs.lines,{yPercent:0,duration:1.4,stagger:.12,delay:.2})
+      .from(".room-copy .label,.room-copy .lede,.room-copy .row",{autoAlpha:0,y:18,duration:1.1,stagger:.1},"-=1.0");
+
+    /* section titles do the same when they arrive */
+    gsap.utils.toArray(".section-title,.book-head h2,.out p.last,#author-title").forEach(el=>{
+      const s=room4(SplitText.create(el,{type:"lines",mask:"lines"}));
+      gsap.from(s.lines,{yPercent:130,duration:1.2,ease:"expo.out",stagger:.1,scrollTrigger:{trigger:el,start:"top 86%",once:true}});
+    });
+    ScrollTrigger.refresh();
+  });
+
+  /* photographs drift slower than the page */
+  gsap.utils.toArray(".chapter .frame img").forEach(img=>{
+    gsap.fromTo(img,{yPercent:-4},{yPercent:4,ease:"none",scrollTrigger:{trigger:img.parentElement,start:"top bottom",end:"bottom top",scrub:true}});
+  });
+
+  /* main buttons lean toward the cursor */
+  if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+    document.querySelectorAll(".btn-flame,.nav-cta").forEach(b=>{
+      const mx=gsap.quickTo(b,"x",{duration:.6,ease:"power3"}),my=gsap.quickTo(b,"y",{duration:.6,ease:"power3"});
+      b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();mx((e.clientX-r.left-r.width/2)*.28);my((e.clientY-r.top-r.height/2)*.4)});
+      b.addEventListener("pointerleave",()=>{mx(0);my(0)});
+    });
+  }
+
+  /* keep triggers right when the form swaps for its thank-you card */
+  new ResizeObserver(()=>ScrollTrigger.refresh()).observe(document.body);
+})();
 </script>
 </body>
 </html>
