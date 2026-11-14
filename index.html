@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://wailbenhamida.work/">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0b0a">
-<script>document.documentElement.classList.add("js");setTimeout(()=>document.documentElement.classList.add("split-ok"),2500)</script>
+<script>document.documentElement.classList.add("js");setTimeout(()=>document.documentElement.classList.add("split-ok","intro-gone"),4500)</script>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23e8a24a%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -289,9 +289,43 @@ html.lenis,html.lenis body{height:auto}
 .lenis.lenis-smooth{scroll-behavior:auto!important}
 .lenis.lenis-smooth [data-lenis-prevent]{overscroll-behavior:contain}
 .lenis.lenis-stopped{overflow:clip}
+/* ---------- the thousand-dollar layer ---------- */
+.intro{display:none}
+.js .intro{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:var(--night);cursor:pointer;--hole:-140px;
+  -webkit-mask:radial-gradient(circle at 50% 50%,transparent var(--hole),#000 calc(var(--hole) + 140px));
+          mask:radial-gradient(circle at 50% 50%,transparent var(--hole),#000 calc(var(--hole) + 140px))}
+.intro-gone .intro{display:none!important}
+.intro-spark{width:12px;height:12px;border-radius:50%;background:#ffd28a;box-shadow:0 0 24px 8px rgba(232,162,74,.8),0 0 90px 40px rgba(232,162,74,.22);animation:flicker 2.6s infinite}
+.intro-word{position:absolute;top:calc(50% + 46px);font-family:var(--display);font-size:clamp(24px,2.6vw,34px);letter-spacing:.08em;color:var(--ink);white-space:nowrap}
+.intro-word i{font-style:normal;color:var(--flame)}
+.sparks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;mix-blend-mode:screen}
+.cur-dot,.cur-ring{position:fixed;left:0;top:0;pointer-events:none;z-index:300;border-radius:50%;translate:-50% -50%;transition:opacity .3s}
+.cur-dot{width:6px;height:6px;background:#ffd28a;box-shadow:0 0 12px 3px rgba(232,162,74,.7)}
+.cur-ring{width:38px;height:38px;border:1px solid rgba(232,162,74,.55);display:grid;place-items:center;
+  transition:width .4s cubic-bezier(.2,.7,.2,1),height .4s cubic-bezier(.2,.7,.2,1),background .4s,border-color .4s,opacity .3s}
+.cur-ring span{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#17110a}
+.cur-ring.big{width:66px;height:66px;background:rgba(232,162,74,.1);border-color:var(--flame)}
+.cur-ring.img{width:96px;height:96px;background:var(--flame);border-color:var(--flame)}
+.cur-hide .cur-dot,.cur-hide .cur-ring{opacity:0}
+.has-cursor body,.has-cursor a,.has-cursor button,.has-cursor label,.has-cursor .key{cursor:none}
+.marquee{display:none;overflow:hidden;padding:9vh 0;margin-top:12vh;border-block:1px solid var(--faint)}
+.mq-on .marquee{display:block}
+.mq-track{display:flex;width:max-content;align-items:center;font-family:var(--display);font-style:italic;font-size:clamp(46px,7.5vw,116px);line-height:1.15;white-space:nowrap;will-change:transform}
+.mq-track span{padding-inline:.4em;color:var(--ink)}
+.mq-track span:nth-of-type(even){color:transparent;-webkit-text-stroke:1px #6b6358}
+.mq-track span:nth-of-type(3n+1){color:var(--flame)}
+.mq-track i{flex:none;width:.16em;height:.16em;border-radius:50%;background:var(--flame);box-shadow:0 0 18px var(--flame)}
+.path::before{transform-origin:0 50%;transform:scaleX(var(--draw,1))}
+.key::after{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,0%),rgba(255,255,255,.45),transparent 55%);mix-blend-mode:soft-light}
+.key:hover::after{opacity:1}
+.mega{font-family:var(--display);font-size:clamp(56px,13.4vw,210px);line-height:1;letter-spacing:-.01em;margin:16vh 0 0;white-space:nowrap;overflow:hidden;padding-bottom:.08em;color:var(--ink)}
+.mega i{font-style:normal;color:var(--flame);padding-inline:.06em;text-shadow:0 0 40px rgba(232,162,74,.45)}
+@media (prefers-reduced-motion:reduce){.intro{display:none!important}}
 </style>
 </head>
 <body>
+<div class="intro" id="intro" aria-hidden="true"><div class="intro-spark"></div><p class="intro-word">STAY <i>→</i> STORY</p></div>
 <div class="wick" id="wick" aria-hidden="true"></div>
 
 <nav class="nav" id="nav" aria-label="Main">
@@ -502,6 +536,8 @@ html.lenis,html.lenis body{height:auto}
     <p class="disclaim">These are concept case studies, created to show the method. Names, people and places are imagined; the craft is real.</p>
   </section>
 
+  <div class="marquee" aria-hidden="true"><div class="mq-track"></div></div>
+
   <section class="layers wrap" id="method" aria-labelledby="layers-title">
     <p class="label">Two layers, one job</p>
     <h2 class="section-title" id="layers-title">A story people remember. <em style="color:var(--flame)">Facts AI can repeat.</em></h2>
@@ -632,6 +668,7 @@ html.lenis,html.lenis body{height:auto}
   <section class="out wrap" aria-label="Closing">
     <p class="last rise">Your place already has a story.<br><em>Let’s light it.</em></p>
     <a class="btn btn-flame rise" href="#snapshot">Start with the free Snapshot</a>
+    <p class="mega" aria-hidden="true">STAY<i>→</i>STORY</p>
     <div class="foot"><span>STAY → STORY · story &amp; AI visibility studio · remote, worldwide · <a href="mailto:hello@wailbenhamida.work">hello@wailbenhamida.work</a></span><span>© 2026 Wail Ben Hamida</span></div>
   </section>
 </main>
@@ -780,42 +817,142 @@ addEventListener("scroll",onScroll,{passive:true});onScroll();
 <script>
 /* motion layer: GSAP (free, gsap.com/licensing) + Lenis (MIT). Skipped entirely for reduced motion or if a CDN fails. */
 (()=>{
-  const de=document.documentElement,done=()=>de.classList.add("split-ok");
-  if(reduce||!window.gsap||!window.ScrollTrigger||!window.SplitText){done();return}
+  const de=document.documentElement,intro=document.getElementById("intro");
+  const done=()=>de.classList.add("split-ok"),introGone=()=>de.classList.add("intro-gone");
+  if(reduce||!window.gsap||!window.ScrollTrigger||!window.SplitText){done();introGone();return}
   gsap.registerPlugin(ScrollTrigger,SplitText);
+  const fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+  const room4=s=>{(s.masks||[]).forEach(m=>{m.style.paddingBottom=".16em";m.style.marginBottom="-.16em"});return s};
+  const fontsReady=document.fonts.ready;
 
   /* silk scroll */
+  let lenis=null;
   if(window.Lenis){
-    const lenis=new Lenis({anchors:{offset:-68},prevent:n=>/^(TEXTAREA|SELECT)$/.test(n.nodeName)});
+    lenis=new Lenis({anchors:{offset:-68},prevent:n=>/^(TEXTAREA|SELECT)$/.test(n.nodeName)});
     lenis.on("scroll",ScrollTrigger.update);
     gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
   }
 
-  const room4=s=>{(s.masks||[]).forEach(m=>{m.style.paddingBottom=".16em";m.style.marginBottom="-.16em"});return s};
-  document.fonts.ready.then(()=>{
-    /* headline rises line by line from behind a mask */
-    const h1=document.querySelector(".room-copy h1");
-    const hs=room4(SplitText.create(h1,{type:"lines",mask:"lines"}));
+  /* hero headline rises line by line */
+  let heroDone=false;
+  const heroIn=()=>{
+    if(heroDone)return;heroDone=true;
+    const hs=room4(SplitText.create(document.querySelector(".room-copy h1"),{type:"lines",mask:"lines"}));
     gsap.set(hs.lines,{yPercent:130});done();
     gsap.timeline({defaults:{ease:"expo.out"}})
-      .to(hs.lines,{yPercent:0,duration:1.4,stagger:.12,delay:.2})
-      .from(".room-copy .label,.room-copy .lede,.room-copy .row",{autoAlpha:0,y:18,duration:1.1,stagger:.1},"-=1.0");
+      .to(hs.lines,{yPercent:0,duration:1.4,stagger:.12,delay:.1})
+      .from(".room-copy .label,.room-copy .lede,.room-copy .row,.nav",{autoAlpha:0,y:18,duration:1.1,stagger:.08},"-=1.1");
+  };
 
-    /* section titles do the same when they arrive */
+  /* 1. opening: a spark, the name, then the light opens the world (once per visit) */
+  let seen=false;try{seen=sessionStorage.getItem("lit")==="1";sessionStorage.setItem("lit","1")}catch(e){}
+  if(seen||!intro){introGone();fontsReady.then(heroIn)}
+  else{
+    lenis&&lenis.stop();
+    const word=intro.querySelector(".intro-word"),cs=SplitText.create(word,{type:"chars"});
+    const R=Math.hypot(innerWidth,innerHeight);
+    const finish=()=>{introGone();lenis&&lenis.start()};
+    const tl=gsap.timeline({onComplete:finish});
+    tl.from(".intro-spark",{scale:0,duration:.55,ease:"back.out(3)"})
+      .from(cs.chars,{autoAlpha:0,y:14,filter:"blur(8px)",stagger:.03,duration:.6,ease:"power3.out"},"-=.15")
+      .to(word,{autoAlpha:0,y:-12,filter:"blur(6px)",duration:.45,ease:"power2.in"},"+=.2")
+      .to(".intro-spark",{scale:3,autoAlpha:0,duration:.6,ease:"power2.in"},"<")
+      .fromTo(intro,{"--hole":"-140px"},{"--hole":R+"px",duration:1.1,ease:"power3.in"},"-=.35")
+      .add(()=>fontsReady.then(heroIn),"-=.6");
+    intro.addEventListener("click",()=>{tl.progress(1);fontsReady.then(heroIn);finish()});
+  }
+
+  /* 2. embers rise from the lantern */
+  const room=document.querySelector(".dark-room"),cv=document.createElement("canvas");
+  cv.className="sparks";cv.setAttribute("aria-hidden","true");room.insertBefore(cv,room.querySelector(".flame"));
+  const ctx=cv.getContext("2d"),P=[],MAX=fine?150:70;let W=0,H=0,on=true;
+  const size=()=>{const d=Math.min(devicePixelRatio||1,2);W=room.clientWidth;H=room.clientHeight;cv.width=W*d;cv.height=H*d;ctx.setTransform(d,0,0,d,0,0)};
+  size();addEventListener("resize",size);
+  new IntersectionObserver(e=>{on=e[0].isIntersecting}).observe(room);
+  gsap.ticker.add(()=>{
+    if(!on||document.hidden)return;
+    for(let k=0;k<2&&P.length<MAX;k++){const a=Math.random()*6.283,r=Math.random()*40;
+      P.push({x:x+Math.cos(a)*r,y:y+Math.sin(a)*r,vx:(Math.random()-.5)*.5,vy:-.35-Math.random()*1.1,l:0,L:70+Math.random()*120,s:.5+Math.random()*1.8,w:Math.random()*6.283})}
+    ctx.clearRect(0,0,W,H);ctx.globalCompositeOperation="lighter";
+    for(let i=P.length-1;i>=0;i--){const p=P[i];p.l++;p.w+=.05;p.x+=p.vx+Math.sin(p.w)*.35;p.y+=p.vy;
+      const t=p.l/p.L;if(t>=1){P.splice(i,1);continue}
+      const al=Math.sin(t*Math.PI)*.9;ctx.fillStyle=`rgba(255,${170+Math.round(60*(1-t))},${90-Math.round(60*t)},${al})`;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.s*(1-t*.5),0,6.283);ctx.fill()}
+  });
+
+  /* 3. a small flame for a cursor */
+  if(fine){
+    const dot=document.createElement("div"),ring=document.createElement("div");
+    dot.className="cur-dot";ring.className="cur-ring";ring.innerHTML="<span></span>";dot.setAttribute("aria-hidden","true");ring.setAttribute("aria-hidden","true");
+    document.body.append(dot,ring);de.classList.add("has-cursor","cur-hide");
+    const dx=gsap.quickTo(dot,"x",{duration:.1,ease:"power3"}),dy=gsap.quickTo(dot,"y",{duration:.1,ease:"power3"});
+    const rx=gsap.quickTo(ring,"x",{duration:.45,ease:"power3"}),ry=gsap.quickTo(ring,"y",{duration:.45,ease:"power3"});
+    let hide=true;
+    addEventListener("pointermove",e=>{dx(e.clientX);dy(e.clientY);rx(e.clientX);ry(e.clientY);de.classList.toggle("cur-hide",hide)},{passive:true});
+    document.addEventListener("pointerover",e=>{const t=e.target;
+      const img=t.closest(".chapter .frame"),link=t.closest("a,button,label,.key,.sample-snap");
+      hide=(!!t.closest(".dark-room")&&!link)||!!t.closest("input,textarea");
+      ring.classList.toggle("big",!!link&&!img);ring.classList.toggle("img",!!img);ring.firstChild.textContent=img?"Read":"";
+      de.classList.toggle("cur-hide",hide)});
+    document.documentElement.addEventListener("pointerleave",()=>de.classList.add("cur-hide"));
+  }
+
+  fontsReady.then(()=>{
+    /* 4. manifesto: each word lights as you read */
+    gsap.utils.toArray(".manifesto p").forEach(p=>{
+      const s=SplitText.create(p,{type:"words"});
+      gsap.fromTo(s.words,{color:"#3a352e"},{color:(i,w)=>w.closest("em")?"#e8a24a":"#efe8dc",stagger:.1,ease:"none",
+        scrollTrigger:{trigger:p,start:"top 85%",end:"bottom 55%",scrub:true}});
+    });
+    /* 5. titles rise from behind a mask */
     gsap.utils.toArray(".section-title,.book-head h2,.out p.last,#author-title").forEach(el=>{
       const s=room4(SplitText.create(el,{type:"lines",mask:"lines"}));
       gsap.from(s.lines,{yPercent:130,duration:1.2,ease:"expo.out",stagger:.1,scrollTrigger:{trigger:el,start:"top 86%",once:true}});
     });
+    /* 6. the closing wordmark, letter by letter */
+    const mega=document.querySelector(".mega");
+    if(mega){const s=SplitText.create(mega,{type:"chars"});
+      gsap.from(s.chars,{yPercent:110,rotate:8,ease:"power3.out",stagger:.04,scrollTrigger:{trigger:mega,start:"top 98%",end:"bottom 80%",scrub:1}})}
     ScrollTrigger.refresh();
   });
 
-  /* photographs drift slower than the page */
-  gsap.utils.toArray(".chapter .frame img").forEach(img=>{
-    gsap.fromTo(img,{yPercent:-4},{yPercent:4,ease:"none",scrollTrigger:{trigger:img.parentElement,start:"top bottom",end:"bottom top",scrub:true}});
+  /* 7. photographs: the window opens, then drifts */
+  gsap.utils.toArray(".chapter .frame").forEach(f=>{
+    gsap.fromTo(f,{clipPath:"inset(14% 10% 14% 10% round 4px)"},{clipPath:"inset(0% 0% 0% 0% round 4px)",ease:"none",scrollTrigger:{trigger:f,start:"top bottom",end:"top 30%",scrub:true}});
+    gsap.fromTo(f.querySelector("img"),{yPercent:-4},{yPercent:4,ease:"none",scrollTrigger:{trigger:f,start:"top bottom",end:"bottom top",scrub:true}});
+  });
+  const portrait=document.querySelector(".portrait img");
+  portrait&&gsap.fromTo(portrait,{filter:"grayscale(1) contrast(1.05) brightness(.7)"},{filter:"grayscale(0) contrast(1) brightness(1)",ease:"none",scrollTrigger:{trigger:portrait,start:"top 85%",end:"center 45%",scrub:true}});
+
+  /* 8. a river of true sentences, faster when you scroll faster */
+  const mq=document.querySelector(".mq-track");
+  if(mq&&typeof TRUTHS!=="undefined"){
+    const h=TRUTHS.map(t=>`<span>${esc(t)}</span><i></i>`).join("");mq.innerHTML=h+h;de.classList.add("mq-on");
+    const loop=gsap.to(mq,{xPercent:-50,ease:"none",duration:70,repeat:-1});
+    const sk=gsap.quickTo(mq,"skewX",{duration:.5,ease:"power3"});
+    ScrollTrigger.create({trigger:".marquee",start:"top bottom",end:"bottom top",onUpdate:s=>{
+      const v=s.getVelocity();sk(gsap.utils.clamp(-8,8,v/-250));
+      gsap.to(loop,{timeScale:gsap.utils.clamp(1,9,Math.abs(v)/120),duration:.2,overwrite:true,onComplete:()=>{gsap.to(loop,{timeScale:1,duration:1.4});sk(0)}});
+    }});
+  }
+
+  /* 9. the method line draws itself */
+  gsap.fromTo(".path",{"--draw":0},{"--draw":1,ease:"none",scrollTrigger:{trigger:".path",start:"top 85%",end:"top 45%",scrub:true}});
+
+  /* 10. room keys: tilt, glare, and prices that count up */
+  document.querySelectorAll(".key").forEach(k=>{
+    if(fine){gsap.set(k,{transformPerspective:900,transformOrigin:"50% 50%"});
+      const rx=gsap.quickTo(k,"rotationX",{duration:.6,ease:"power3"}),ry=gsap.quickTo(k,"rotationY",{duration:.6,ease:"power3"});
+      k.addEventListener("pointermove",e=>{const r=k.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;
+        ry((px-.5)*16);rx((.5-py)*16);k.style.setProperty("--gx",px*100+"%");k.style.setProperty("--gy",py*100+"%")});
+      k.addEventListener("pointerleave",()=>{rx(0);ry(0)});}
+    const p=k.querySelector(".price"),n=p&&p.firstChild,m=n&&n.nodeType===3&&n.textContent.match(/^\$(\d+)$/);
+    if(m){const o={v:0},end=+m[1];n.textContent="$0";
+      gsap.to(o,{v:end,duration:1.8,ease:"power3.out",scrollTrigger:{trigger:p,start:"top 92%",once:true},onUpdate:()=>{n.textContent="$"+Math.round(o.v)}})}
   });
 
-  /* main buttons lean toward the cursor */
-  if(matchMedia("(hover:hover) and (pointer:fine)").matches){
+  /* 11. main buttons lean toward the cursor */
+  if(fine){
     document.querySelectorAll(".btn-flame,.nav-cta").forEach(b=>{
       const mx=gsap.quickTo(b,"x",{duration:.6,ease:"power3"}),my=gsap.quickTo(b,"y",{duration:.6,ease:"power3"});
       b.addEventListener("pointermove",e=>{const r=b.getBoundingClientRect();mx((e.clientX-r.left-r.width/2)*.28);my((e.clientY-r.top-r.height/2)*.4)});
@@ -824,7 +961,7 @@ addEventListener("scroll",onScroll,{passive:true});onScroll();
   }
 
   /* keep triggers right when the form swaps for its thank-you card */
-  new ResizeObserver(()=>ScrollTrigger.refresh()).observe(document.body);
+  let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>ScrollTrigger.refresh(),200)}).observe(document.body);
 })();
 </script>
 </body>
