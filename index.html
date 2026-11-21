@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#0c0b0a">
 <script>document.documentElement.classList.add("js");setTimeout(()=>document.documentElement.classList.add("split-ok","intro-gone"),4500)</script>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23e8a24a%22/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><defs><radialGradient id=%27g%27><stop offset=%270%27 stop-color=%27%23ffd28a%27/><stop offset=%27.35%27 stop-color=%27%23e8a24a%27/><stop offset=%271%27 stop-color=%27%23e8a24a%27 stop-opacity=%270%27/></radialGradient></defs><path d=%27M50 0C88 0 100 12 100 50S88 100 50 100 0 88 0 50 12 0 50 0Z%27 fill=%27%230c0b0a%27/><circle cx=%2750%27 cy=%2750%27 r=%2730%27 fill=%27url(%23g)%27/><circle cx=%2750%27 cy=%2750%27 r=%277%27 fill=%27%23ffe2b0%27/></svg>"><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23e8a24a%22/></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Figtree:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -322,6 +322,66 @@ html.lenis,html.lenis body{height:auto}
 .mega{font-family:var(--display);font-size:clamp(56px,13.4vw,210px);line-height:1;letter-spacing:-.01em;margin:16vh 0 0;white-space:nowrap;overflow:hidden;padding-bottom:.08em;color:var(--ink)}
 .mega i{font-style:normal;color:var(--flame);padding-inline:.06em;text-shadow:0 0 40px rgba(232,162,74,.45)}
 @media (prefers-reduced-motion:reduce){.intro{display:none!important}}
+
+/* ---------- Apple layer (2026-11-21): same lantern world, Apple discipline ----------
+   Continuous "icon" corners (squircle), calmer surfaces, more air, one type rhythm.
+   Remove this whole block to return to the previous look. */
+:root{
+  --sq-xl:30px; --sq-lg:24px; --sq-md:18px; --sq-sm:10px;   /* fallback: plain round corners */
+  --ease-apple:cubic-bezier(.25,.1,.25,1);
+}
+@supports (corner-shape:squircle){
+  :root{--sq-xl:56px; --sq-lg:44px; --sq-md:32px; --sq-sm:18px}  /* squircle needs a larger radius to read the same size */
+  .frame,.portrait,.card,.card::before,.layer,.key,.bubble,.sample-snap img{corner-shape:squircle}
+}
+/* calmer grain, Apple-clean surfaces */
+body::before{opacity:.035}
+body{line-height:1.5;letter-spacing:-.003em}
+/* nav: thin translucent bar with a hairline */
+.nav .wrap{height:56px}
+.nav.solid{background:rgba(12,11,10,.68);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);box-shadow:0 1px 0 rgba(239,232,220,.08)}
+.nav-links{gap:30px;font-size:13px;letter-spacing:.01em}
+.nav-cta{font-size:13px;padding:7px 16px;background:var(--ink);color:var(--night);border-color:var(--ink);font-weight:500}
+.nav-cta:hover{background:var(--flame);border-color:var(--flame)}
+/* buttons: Apple pill, quiet hover */
+.btn{padding:14px 26px;font-size:16px;font-weight:500;letter-spacing:-.005em;transition:background-color .3s var(--ease-apple),box-shadow .3s var(--ease-apple),border-color .3s var(--ease-apple)}
+.btn-flame:hover{transform:none;background:#f0b060;box-shadow:0 8px 30px -10px rgba(232,162,74,.55)}
+/* one type rhythm: big headline, short line, generous air */
+.section-title,.book-head h2,.author h2{letter-spacing:-.015em;line-height:1.02}
+.layers,.snapshot{padding-block:26vh 22vh}
+.chapter{padding-block:20vh}
+.desk{padding-block:24vh}
+.author{padding-block:18vh 26vh}
+.book-head p,.desk .sub,.layer p,.author .bio{font-size:19px;line-height:1.5}
+/* every box: continuous corners */
+.frame{border-radius:var(--sq-xl)}
+.frame figcaption{left:26px;bottom:22px}
+.portrait{border-radius:var(--sq-xl)}
+.card{border-radius:var(--sq-lg)}
+.card::before{border-radius:calc(var(--sq-lg) - 8px)}
+.bubble{border-radius:var(--sq-md)}
+.sample-snap img{border-radius:var(--sq-sm)}
+/* two layers: two separate tiles instead of a hairline grid */
+.layers-grid{gap:20px;background:none;border:0}
+.layer{background:var(--night-2);border-radius:var(--sq-xl);box-shadow:inset 0 0 0 1px rgba(239,232,220,.07);padding:clamp(32px,4.4vw,64px)}
+/* room keys: one clean icon shape, lift instead of rotate */
+.key{border-radius:var(--sq-lg);padding:60px 26px 32px;box-shadow:0 1px 0 #fff inset,0 20px 44px -28px rgba(60,40,10,.4)}
+.key:hover{transform:translateY(-6px);box-shadow:0 1px 0 #fff inset,0 34px 60px -30px rgba(60,40,10,.5)}
+.keys{gap:24px}
+@media (max-width:820px){
+  .chapter{padding-block:12vh}
+  .layers,.snapshot{padding-block:16vh 14vh}
+  .desk{padding-block:16vh}
+  .book-head p,.desk .sub,.layer p,.author .bio{font-size:17px}
+}
+/* signature: the lantern finds the edges. A warm light runs along each squircle rim, following the visitor's hand. */
+.layer::before,.frame::before,.portrait::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;z-index:3;
+  background:radial-gradient(240px circle at var(--lx,-999px) var(--ly,-999px),rgba(255,206,140,.95),rgba(232,162,74,.35) 35%,transparent 70%);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;
+          mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  opacity:0;transition:opacity .5s var(--ease-apple)}
+.lit-edge::before{opacity:1}
+@supports (corner-shape:squircle){.layer::before,.frame::before,.portrait::before{corner-shape:squircle}}
 </style>
 </head>
 <body>
@@ -962,6 +1022,15 @@ addEventListener("scroll",onScroll,{passive:true});onScroll();
 
   /* keep triggers right when the form swaps for its thank-you card */
   let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>ScrollTrigger.refresh(),200)}).observe(document.body);
+})();
+</script>
+<script>
+/* signature edge-light (Apple layer) */
+(()=>{if(!matchMedia("(hover:hover) and (pointer:fine)").matches||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const els=[...document.querySelectorAll(".layer,.frame,.portrait")];
+  addEventListener("pointermove",e=>{for(const el of els){const r=el.getBoundingClientRect(),x=e.clientX-r.left,y=e.clientY-r.top,pad=140;
+    const near=x>-pad&&y>-pad&&x<r.width+pad&&y<r.height+pad;el.classList.toggle("lit-edge",near);
+    if(near){el.style.setProperty("--lx",x+"px");el.style.setProperty("--ly",y+"px")}}},{passive:true});
 })();
 </script>
 </body>
